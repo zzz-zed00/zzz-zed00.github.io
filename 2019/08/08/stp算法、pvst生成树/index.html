@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="STP算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/stp算法、pvst生成树/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="STP算法">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-08T09:22:22.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="STP算法">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">John Doe</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-stp算法、pvst生成树" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/stp算法、pvst生成树/" class="article-date">
+  <time class="post-time" datetime="2019-08-08T09:21:34.429Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="STP算法"><a href="#STP算法" class="headerlink" title="STP算法"></a>STP算法</h1><a id="more"></a>
+
+<p>STP将一个环形网络生成无环拓扑的步骤</p>
+<p>第一步：选择根网桥</p>
+<p>第二部；选择根端口</p>
+<p>第三步：选择指端口</p>
+<h2 id="1-如何选择根网桥"><a href="#1-如何选择根网桥" class="headerlink" title="1.如何选择根网桥"></a>1.如何选择根网桥</h2><p>根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是网桥。如果优先级相同，谁的MAC地址小谁就是网桥。</p>
+<p>BID：优先级+MAC地址</p>
+<p>​    默认情况下交换机的优先级是：37768</p>
+<p>​    查看交换机的MAC地址：switch#show version</p>
+<p>​    base ethernetMAC Address：0001，967e，9162</p>
+<h2 id="2-选择根端口"><a href="#2-选择根端口" class="headerlink" title="2.选择根端口"></a>2.选择根端口</h2><h4 id="1-如何选择根端口"><a href="#1-如何选择根端口" class="headerlink" title="(1) 如何选择根端口"></a>(1) 如何选择根端口</h4><p>在非根网桥上选择一个到根网桥最近的端口作为根端口，选择端口的依据是：</p>
+<p>​    根路径的成本（cost值）从端口出发到根桥最低</p>
+<p>​    直连网桥的网桥ID最小</p>
+<p>​    直连网桥的端口ID最小</p>
+<h3 id="2-什么是cost值"><a href="#2-什么是cost值" class="headerlink" title="(2)什么是cost值"></a>(2)什么是cost值</h3><p>根路径成本是网桥到根网桥的路径上所有链路的成本之和。</p>
+<h3 id="3-什么是端口ID"><a href="#3-什么是端口ID" class="headerlink" title="(3)什么是端口ID"></a>(3)什么是端口ID</h3><p>端口优先级(默认是128)+端口编号</p>
+<h2 id="3-选择指定端口"><a href="#3-选择指定端口" class="headerlink" title="3.选择指定端口"></a>3.选择指定端口</h2><p>依据是</p>
+<p>​    在每根网桥上选择一个指定端口，根桥上的端口全是指定端口。</p>
+<p>非根桥上的指定端口：</p>
+<p>​    根路径成本最低【从非根桥到根桥】</p>
+<p>​    端口所在的网桥ID值较小</p>
+<h1 id="pvst：按vlan生成树"><a href="#pvst：按vlan生成树" class="headerlink" title="pvst：按vlan生成树"></a>pvst：按vlan生成树</h1><h2 id="1-划分vlan"><a href="#1-划分vlan" class="headerlink" title="1.划分vlan"></a>1.划分vlan</h2><h2 id="2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"><a href="#2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥" class="headerlink" title="2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"></a>2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥</h2><p>sw1(config)#spanning-tree vlan 10 root primary</p>
+<p>sw2(config)#spanning-tree vlan 10 root secondary</p>
+<h2 id="3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"><a href="#3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥" class="headerlink" title="3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"></a>3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥</h2><p>sw2(config)#spanning-tree vlan 20 root primary</p>
+<p>sw1(config)#spanning-tree vlan 20 root secondary</p>
+<h1 id="配置端口聚合"><a href="#配置端口聚合" class="headerlink" title="配置端口聚合"></a>配置端口聚合</h1><p>sw1(config)#int port-channel 1  开启一个逻辑端口</p>
+<p>sw1(config)#sw mo trunk</p>
+<p>sw2(config)#int port-channel 1</p>
+<p>sw2(config)#mo trunk</p>
+<p>sw1(config)#int f0/4</p>
+<p>sw1(config)#sw mo trunk</p>
+<p>sw2(config)#int f0/4</p>
+<p>sw2(config)#sw mo trunk</p>
+<p>sw1(config)#int range f0/1,f0/4</p>
+<p>sw1(config)#channel-group 1 mode on</p>
+<p>sw2(config)#int range f0/1,f0/4</p>
+<p>sw2(config)#channel-group 1 mode on</p>
+<h1 id="配置流量均衡"><a href="#配置流量均衡" class="headerlink" title="配置流量均衡"></a>配置流量均衡</h1><p>switch(config)#int f0/1</p>
+<p>switch(config)#spanning-tree vlan 10 port-priority 16</p>
+<p>switch(config)#spanning-tree vlan 20 port-priority 32</p>
+<p>switch(config)#int f0/2</p>
+<p>switch(config)#spanning-tree vlan 10 port-priority 32</p>
+<p>switch(config)#spanning-tree vlan 20 port-priority 16</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/stp算法、pvst生成树/" data-id="cjz2mo8t20001owv360dwoi8m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/08/SQL注入/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/08/用路由器做DHCP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">John Doe</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/ShanaMaid" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 John Doe<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
