@@ -1,7 +1,5 @@
 # SQL注入
 
-<!--more-->
-
 sql注入是web应用程序对用户的输入数据的合法性没有判断，前端传入的数据是攻击者可控的，并且可以带入数据库查询，攻击者可以构造不同的sql语句来实现自己的目的
 
 ## 注入之前的尝试
@@ -65,4 +63,10 @@ user()当前MySQL的用户
 3./**/    *中的内容会被注释
 
 ## union注入
+
+联合注入是在参数输入的地方拼接另一个查询语句，使数据库执行此语句，从而达到目的
+
+union select database() --+
+
+union select table_name from intormation_schema.tables where table_schema=database() --+
 

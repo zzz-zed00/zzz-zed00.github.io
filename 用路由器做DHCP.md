@@ -1,7 +1,5 @@
 # 用路由器做DHCP
 
-<!--more-->
-
 R1(config)# ip dhcp pool vlan100   配置地址池名称
 
 R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围
