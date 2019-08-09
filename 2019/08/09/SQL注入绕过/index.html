@@ -7,17 +7,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用路由器做DHCP">
+  <meta name="description" content="SQL注入绕过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/用路由器做DHCP/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/SQL注入绕过/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="用路由器做DHCP">
+<meta property="og:description" content="SQL注入绕过">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-09T07:18:49.048Z">
+<meta property="og:updated_time" content="2019-08-09T07:18:10.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="用路由器做DHCP">
+<meta name="twitter:description" content="SQL注入绕过">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-用路由器做DHCP" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-SQL注入绕过" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/08/08/用路由器做DHCP/" class="article-date">
-  <time datetime="2019-08-08T15:37:24.613Z" itemprop="datePublished">2019-08-08</time>
+    <a href="/2019/08/09/SQL注入绕过/" class="article-date">
+  <time datetime="2019-08-09T07:14:32.732Z" itemprop="datePublished">2019-08-09</time>
 </a>
     
   </div>
@@ -76,23 +76,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="用路由器做DHCP"><a href="#用路由器做DHCP" class="headerlink" title="用路由器做DHCP"></a>用路由器做DHCP</h1><a id="more"></a>
+        <h1 id="SQL注入绕过"><a href="#SQL注入绕过" class="headerlink" title="SQL注入绕过"></a>SQL注入绕过</h1><a id="more"></a>
 
-<p>R1(config)# ip dhcp pool vlan100   配置地址池名称</p>
-<p>R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围</p>
-<p>R1(dhcp-config)#default-router  192.168.100.254   分配的网关地址</p>
-<p>R1(dhcp-config)#dns-server 61.139.2.69</p>
-<p>R1(config)#ip dhcp excluded-address 192.168.1 192.168.1.10  排除地址</p>
-<h1 id="DHCP中继"><a href="#DHCP中继" class="headerlink" title="DHCP中继"></a>DHCP中继</h1><h2 id="1-配置dhcp服务器"><a href="#1-配置dhcp服务器" class="headerlink" title="1.配置dhcp服务器"></a>1.配置dhcp服务器</h2><h2 id="2-在网关接口上配置转发"><a href="#2-在网关接口上配置转发" class="headerlink" title="2.在网关接口上配置转发"></a>2.在网关接口上配置转发</h2><p>switch(config)#int  vlan 10</p>
-<p>ip(config-if)#helper-address 192.168.30.1</p>
-<h2 id="3-pc端"><a href="#3-pc端" class="headerlink" title="3.pc端"></a>3.pc端</h2><p>pc&gt;ipconfig /release</p>
-<p>pc&gt;ipconfig /renew</p>
-<p>pc&gt;ipconfig /all</p>
+<h2 id="1-空格绕过："><a href="#1-空格绕过：" class="headerlink" title="1.空格绕过："></a>1.空格绕过：</h2><p>​    /**/    %a0   括号也可以绕过空格 括号两边可以不用加空格如：where（1=1）</p>
+<h2 id="2-引号绕过："><a href="#2-引号绕过：" class="headerlink" title="2.引号绕过："></a>2.引号绕过：</h2><p>​    十六进制绕过：将引号括起来的语句用十六进制表示</p>
+<h2 id="3-逗号绕过："><a href="#3-逗号绕过：" class="headerlink" title="3.逗号绕过："></a>3.逗号绕过：</h2><p>​    from  for绕过，如select substr(database() from 1 for 1)<br>​    join绕过union select 1,2   #等价于<br>​        union select * from (select 1)a join (select 2)b<br>​    like绕过    limit可以使用offset绕过<br>​        如select *from news limit 0,1   #等价于<br>​            select * from news limit 1 offset 0</p>
+<h2 id="4-大于号-gt-小于号-lt-绕过"><a href="#4-大于号-gt-小于号-lt-绕过" class="headerlink" title="4.大于号&gt;小于号&lt;绕过"></a>4.大于号&gt;小于号&lt;绕过</h2><p>​    greatest()、least()前者返回最大值，后者返回最小值<br>​    greatest(1,5,6,2,3,1)  返回6<br>​    between and  #between a and b  返回a和b之间的数据  不包含b</p>
+<h2 id="5-or-and-xor-not-绕过"><a href="#5-or-and-xor-not-绕过" class="headerlink" title="5.or   and   xor  not  绕过"></a>5.or   and   xor  not  绕过</h2><p>​    and 用&amp;&amp;   or用||   xor用|  not用!</p>
+<h2 id="6-绕过注释符号-过滤注释符号"><a href="#6-绕过注释符号-过滤注释符号" class="headerlink" title="6.绕过注释符号   过滤注释符号"></a>6.绕过注释符号   过滤注释符号</h2><p>​    使语句闭合</p>
+<h2 id="7-绕过"><a href="#7-绕过" class="headerlink" title="7.=绕过"></a>7.=绕过</h2><p>​    like    rlike  regexp  或者用“或者”</p>
+<h2 id="8-绕过union-select-where等sql常用语句"><a href="#8-绕过union-select-where等sql常用语句" class="headerlink" title="8.绕过union  select  where等sql常用语句"></a>8.绕过union  select  where等sql常用语句</h2><p>​    注释符绕过。。暂定 看不懂<br>​    大小写绕过  #语句大小写混合输入  id=-1’ UnIoN SeLecT<br>​    内联注释绕过/*！  */<br>​    双关键字绕过  适用于只过滤一次关键字的注入</p>
+<h2 id="9-通用绕过"><a href="#9-通用绕过" class="headerlink" title="9.通用绕过"></a>9.通用绕过</h2><p>​    编码绕过   urlencode   ascii  hex  unicode</p>
+<h2 id="10-宽字节注入"><a href="#10-宽字节注入" class="headerlink" title="10.宽字节注入"></a>10.宽字节注入</h2><p>​    %df和转义符形成一个特殊字符从而吃掉‘转义符’ 让%df后面的字符逃过转义</p>
+<h2 id="11-等价函数"><a href="#11-等价函数" class="headerlink" title="11.等价函数"></a>11.等价函数</h2><p>​    datadir()=@@datadir等</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/用路由器做DHCP/" data-id="cjz3s514t0007k0v3za4wm0mt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/09/SQL注入绕过/" data-id="cjz3s514g0001k0v3znvkcbkm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -101,7 +102,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/08/08/python/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/09/ssh远程管理网路设备：/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -111,7 +112,7 @@
     </a>
   
   
-    <a href="/2019/08/08/stp算法、pvst生成树/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/08/SQL注入/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>

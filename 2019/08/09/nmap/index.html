@@ -7,17 +7,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用路由器做DHCP">
+  <meta name="description" content="nmap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/用路由器做DHCP/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/nmap/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="用路由器做DHCP">
+<meta property="og:description" content="nmap">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-09T07:18:49.048Z">
+<meta property="og:updated_time" content="2019-08-09T07:17:39.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="用路由器做DHCP">
+<meta name="twitter:description" content="nmap">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-用路由器做DHCP" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-nmap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/08/08/用路由器做DHCP/" class="article-date">
-  <time datetime="2019-08-08T15:37:24.613Z" itemprop="datePublished">2019-08-08</time>
+    <a href="/2019/08/09/nmap/" class="article-date">
+  <time datetime="2019-08-09T07:14:32.909Z" itemprop="datePublished">2019-08-09</time>
 </a>
     
   </div>
@@ -76,23 +76,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="用路由器做DHCP"><a href="#用路由器做DHCP" class="headerlink" title="用路由器做DHCP"></a>用路由器做DHCP</h1><a id="more"></a>
+        <h1 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h1><a id="more"></a>
 
-<p>R1(config)# ip dhcp pool vlan100   配置地址池名称</p>
-<p>R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围</p>
-<p>R1(dhcp-config)#default-router  192.168.100.254   分配的网关地址</p>
-<p>R1(dhcp-config)#dns-server 61.139.2.69</p>
-<p>R1(config)#ip dhcp excluded-address 192.168.1 192.168.1.10  排除地址</p>
-<h1 id="DHCP中继"><a href="#DHCP中继" class="headerlink" title="DHCP中继"></a>DHCP中继</h1><h2 id="1-配置dhcp服务器"><a href="#1-配置dhcp服务器" class="headerlink" title="1.配置dhcp服务器"></a>1.配置dhcp服务器</h2><h2 id="2-在网关接口上配置转发"><a href="#2-在网关接口上配置转发" class="headerlink" title="2.在网关接口上配置转发"></a>2.在网关接口上配置转发</h2><p>switch(config)#int  vlan 10</p>
-<p>ip(config-if)#helper-address 192.168.30.1</p>
-<h2 id="3-pc端"><a href="#3-pc端" class="headerlink" title="3.pc端"></a>3.pc端</h2><p>pc&gt;ipconfig /release</p>
-<p>pc&gt;ipconfig /renew</p>
-<p>pc&gt;ipconfig /all</p>
+<h2 id="nmap的功能"><a href="#nmap的功能" class="headerlink" title="nmap的功能"></a>nmap的功能</h2><p>·扫描主机端口</p>
+<p>·探测主机是否在线</p>
+<p>·推断主机操作系统类型</p>
+<h3 id="sT-tcp扫描"><a href="#sT-tcp扫描" class="headerlink" title="-sT  tcp扫描"></a>-sT  tcp扫描</h3><p>全连接扫描 ：  发送一个tcp的连接，不需要root用户即可，容易被探测到</p>
+<h3 id="sS-SYN扫描"><a href="#sS-SYN扫描" class="headerlink" title="-sS    SYN扫描"></a>-sS    SYN扫描</h3><p>半连接扫描：不是一个完整的tcp连接，只发送一个SYN包，返回        SYN|ACK包说明端口正在监听，如果返回RST包说明端口没有监听程序，痕迹少，不易被发现，不过要root权限</p>
+<h3 id="sF-FIN扫描"><a href="#sF-FIN扫描" class="headerlink" title="-sF     FIN扫描"></a>-sF     FIN扫描</h3><p>​    秘密扫描   除SYN、ACK其他位置</p>
+<h3 id="sX-Xmas扫描"><a href="#sX-Xmas扫描" class="headerlink" title="-sX    Xmas扫描"></a>-sX    Xmas扫描</h3><p>   秘密扫描    FIN、URG、PUSH位置</p>
+<h3 id="sN-null扫描"><a href="#sN-null扫描" class="headerlink" title="-sN   -null扫描"></a>-sN   -null扫描</h3><p>   密码扫描   标志位全为0，发送TCP分组</p>
+<h3 id="sP-ping扫描"><a href="#sP-ping扫描" class="headerlink" title="-sP   ping扫描"></a>-sP   ping扫描</h3><p>​    同时使用ICMP  TCP  ACK 80返回RST说明主机运行</p>
+<h3 id="sU-UDP扫描"><a href="#sU-UDP扫描" class="headerlink" title="-sU  UDP扫描"></a>-sU  UDP扫描</h3><p>   发送0字节UDP包，快速扫描windows的UDP端口</p>
+<h3 id="sA-ACK扫描"><a href="#sA-ACK扫描" class="headerlink" title="-sA  ACK扫描"></a>-sA  ACK扫描</h3><p>  TCP ACK扫描</p>
+<p>，防火墙开启时，查看防火墙未过滤端口</p>
+<h3 id="P0"><a href="#P0" class="headerlink" title="-P0"></a>-P0</h3><p>  NMAP扫描前不ping主机</p>
+<h3 id="PT"><a href="#PT" class="headerlink" title="-PT"></a>-PT</h3><p>  扫描前使用TCP  ACK包确定主机是否在运行  默认80端口<br>    -PS  TCP  SYN扫描</p>
+<h3 id="PI"><a href="#PI" class="headerlink" title="-PI"></a>-PI</h3><p>  ping扫描</p>
+<h3 id="O"><a href="#O" class="headerlink" title="-O"></a>-O</h3><p> 扫描TCP/IP指纹特征，确定目标主机类型</p>
+<h3 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h3><p> 冗余模式扫描，可以得到扫描时的详细信息</p>
+<h3 id="S"><a href="#S" class="headerlink" title="-S"></a>-S</h3><p>   欺骗扫描时，用来指定主机IP</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/用路由器做DHCP/" data-id="cjz3s514t0007k0v3za4wm0mt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/09/nmap/" data-id="cjz3s514i0002k0v3dg038qyj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -101,17 +109,8 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/08/08/python/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/08/stp算法、pvst生成树/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/09/文件上传/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
