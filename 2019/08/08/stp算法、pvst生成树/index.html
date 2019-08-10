@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="zed在 Github 上的个人博客">
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="zzz-zed" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        STP算法、pvst生成树｜404 NO FOUND
+        
+    </title>
+
+    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/08/stp算法、pvst生成树/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    zzz-zed
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>STP算法、pvst生成树</h1>
+                    
+                    <span class="meta">
+                         作者 zz
+                        <span>
+                          日期 2019-08-08
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            STP算法、pvst生成树
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="STP算法"><a href="#STP算法" class="headerlink" title="STP算法"></a>STP算法</h1><a id="more"></a>
+
+<p>STP将一个环形网络生成无环拓扑的步骤</p>
+<p>第一步：选择根网桥</p>
+<p>第二部；选择根端口</p>
+<p>第三步：选择指端口</p>
+<h2 id="1-如何选择根网桥"><a href="#1-如何选择根网桥" class="headerlink" title="1.如何选择根网桥"></a>1.如何选择根网桥</h2><p>根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是网桥。如果优先级相同，谁的MAC地址小谁就是网桥。</p>
+<p>BID：优先级+MAC地址</p>
+<p>​    默认情况下交换机的优先级是：37768</p>
+<p>​    查看交换机的MAC地址：switch#show version</p>
+<p>​    base ethernetMAC Address：0001，967e，9162</p>
+<h2 id="2-选择根端口"><a href="#2-选择根端口" class="headerlink" title="2.选择根端口"></a>2.选择根端口</h2><h4 id="1-如何选择根端口"><a href="#1-如何选择根端口" class="headerlink" title="(1) 如何选择根端口"></a>(1) 如何选择根端口</h4><p>在非根网桥上选择一个到根网桥最近的端口作为根端口，选择端口的依据是：</p>
+<p>​    根路径的成本（cost值）从端口出发到根桥最低</p>
+<p>​    直连网桥的网桥ID最小</p>
+<p>​    直连网桥的端口ID最小</p>
+<h3 id="2-什么是cost值"><a href="#2-什么是cost值" class="headerlink" title="(2)什么是cost值"></a>(2)什么是cost值</h3><p>根路径成本是网桥到根网桥的路径上所有链路的成本之和。</p>
+<h3 id="3-什么是端口ID"><a href="#3-什么是端口ID" class="headerlink" title="(3)什么是端口ID"></a>(3)什么是端口ID</h3><p>端口优先级(默认是128)+端口编号</p>
+<h2 id="3-选择指定端口"><a href="#3-选择指定端口" class="headerlink" title="3.选择指定端口"></a>3.选择指定端口</h2><p>依据是</p>
+<p>​    在每根网桥上选择一个指定端口，根桥上的端口全是指定端口。</p>
+<p>非根桥上的指定端口：</p>
+<p>​    根路径成本最低【从非根桥到根桥】</p>
+<p>​    端口所在的网桥ID值较小</p>
+<h1 id="pvst：按vlan生成树"><a href="#pvst：按vlan生成树" class="headerlink" title="pvst：按vlan生成树"></a>pvst：按vlan生成树</h1><h2 id="1-划分vlan"><a href="#1-划分vlan" class="headerlink" title="1.划分vlan"></a>1.划分vlan</h2><h2 id="2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"><a href="#2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥" class="headerlink" title="2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"></a>2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥</h2><p>sw1(config)#spanning-tree vlan 10 root primary</p>
+<p>sw2(config)#spanning-tree vlan 10 root secondary</p>
+<h2 id="3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"><a href="#3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥" class="headerlink" title="3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"></a>3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥</h2><p>sw2(config)#spanning-tree vlan 20 root primary</p>
+<p>sw1(config)#spanning-tree vlan 20 root secondary</p>
+<h1 id="配置端口聚合"><a href="#配置端口聚合" class="headerlink" title="配置端口聚合"></a>配置端口聚合</h1><p>sw1(config)#int port-channel 1  开启一个逻辑端口</p>
+<p>sw1(config)#sw mo trunk</p>
+<p>sw2(config)#int port-channel 1</p>
+<p>sw2(config)#mo trunk</p>
+<p>sw1(config)#int f0/4</p>
+<p>sw1(config)#sw mo trunk</p>
+<p>sw2(config)#int f0/4</p>
+<p>sw2(config)#sw mo trunk</p>
+<p>sw1(config)#int range f0/1,f0/4</p>
+<p>sw1(config)#channel-group 1 mode on</p>
+<p>sw2(config)#int range f0/1,f0/4</p>
+<p>sw2(config)#channel-group 1 mode on</p>
+<h1 id="配置流量均衡"><a href="#配置流量均衡" class="headerlink" title="配置流量均衡"></a>配置流量均衡</h1><p>switch(config)#int f0/1</p>
+<p>switch(config)#spanning-tree vlan 10 port-priority 16</p>
+<p>switch(config)#spanning-tree vlan 20 port-priority 32</p>
+<p>switch(config)#int f0/2</p>
+<p>switch(config)#spanning-tree vlan 10 port-priority 32</p>
+<p>switch(config)#spanning-tree vlan 20 port-priority 16</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/08/08/用路由器做DHCP/" data-toggle="tooltip" data-placement="top"
+                           title="路由器做DHCP、DHCP中继">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#STP算法"><span class="toc-text">STP算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-如何选择根网桥"><span class="toc-text">1.如何选择根网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-选择根端口"><span class="toc-text">2.选择根端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-如何选择根端口"><span class="toc-text">(1) 如何选择根端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么是cost值"><span class="toc-text">(2)什么是cost值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-什么是端口ID"><span class="toc-text">(3)什么是端口ID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-选择指定端口"><span class="toc-text">3.选择指定端口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pvst：按vlan生成树"><span class="toc-text">pvst：按vlan生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-划分vlan"><span class="toc-text">1.划分vlan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"><span class="toc-text">2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"><span class="toc-text">3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置端口聚合"><span class="toc-text">配置端口聚合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流量均衡"><span class="toc-text">配置流量均衡</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/zzz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/zzz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/zzz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/zzz-zed">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; zzz-zed 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://zzz-zed.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>
