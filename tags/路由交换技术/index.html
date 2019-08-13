@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Nmap的使用｜404 NO FOUND
+        404 NO FOUND
         
     </title>
 
-    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/09/nmap/">
+    <link rel="canonical" href="http://zzz-zed.github.io/tags/路由交换技术/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -44,7 +44,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -125,146 +125,183 @@
 
 <!-- Main Content -->
 
-<!--only post-->
 
-
-<img class="wechat-title-img"
-     src="https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg">
-
-
-<style>
-    
-    header.intro-header {
-        background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')
-    }
-
-    
-</style>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>Nmap的使用</h1>
-                    
-                    <span class="meta">
-                         作者 zz
-                        <span>
-                          日期 2019-08-09
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#工具"
-                           title="工具">工具</a>
-                        
+<!-- Page Header -->
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
+    <div class="row">
+        <header class="intro-header">
+            <div class="container">
+                <div class="site-heading text-center">
+                    <div class="about-me">
+                        <!--移动端头部显示-->
+                        <img src="http://wx3.sinaimg.cn/large/006BhCi3gy1g5y0czkbmej30go0gyaaf.jpg"/>
+                        <h5><a href="/about/">zz</a></h5>
+                        <p>做一个努力向上的男人</p>
                     </div>
                 </div>
             </div>
+        </header>
+    </div>
+</div>
+<!-- Main Content -->
+<div class="container custom-haojen-container">
+    <!-- Post Container -->
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
+            <!-- Main Content -->
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
+    <a href="/2019/08/09/ssh远程管理网路设备：/">
+        <h2 class="post-title">
+            Ssh远程管理网路设备
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-09
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                ssh远程管理网路设备：telnet  也可以管理，不过telnet使明文传输  telnet使用23端口
+为了提高安全，使用ssh，密码进行了加密  使用22端口
+配置ssh：
+配置交换机名字
+switch(config)#hostname  sw1
+配置域名
+sw1(config)#ip d..
+            </p>
         </div>
-    </div>
-    <div class="post-title-haojen">
-        <span>
-            Nmap的使用
-        </span>
-    </div>
-</header>
+    </a>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h1><h2 id="nmap的功能"><a href="#nmap的功能" class="headerlink" title="nmap的功能"></a>nmap的功能</h2><p>·扫描主机端口</p>
-<p>·探测主机是否在线</p>
-<p>·推断主机操作系统类型</p>
-<h3 id="sT-tcp扫描"><a href="#sT-tcp扫描" class="headerlink" title="-sT  tcp扫描"></a>-sT  tcp扫描</h3><p>全连接扫描 ：  发送一个tcp的连接，不需要root用户即可，容易被探测到</p>
-<h3 id="sS-SYN扫描"><a href="#sS-SYN扫描" class="headerlink" title="-sS    SYN扫描"></a>-sS    SYN扫描</h3><p>半连接扫描：不是一个完整的tcp连接，只发送一个SYN包，返回        SYN|ACK包说明端口正在监听，如果返回RST包说明端口没有监听程序，痕迹少，不易被发现，不过要root权限</p>
-<h3 id="sF-FIN扫描"><a href="#sF-FIN扫描" class="headerlink" title="-sF     FIN扫描"></a>-sF     FIN扫描</h3><p>​    秘密扫描   除SYN、ACK其他位置</p>
-<h3 id="sX-Xmas扫描"><a href="#sX-Xmas扫描" class="headerlink" title="-sX    Xmas扫描"></a>-sX    Xmas扫描</h3><p>   秘密扫描    FIN、URG、PUSH位置</p>
-<h3 id="sN-null扫描"><a href="#sN-null扫描" class="headerlink" title="-sN   -null扫描"></a>-sN   -null扫描</h3><p>   密码扫描   标志位全为0，发送TCP分组</p>
-<h3 id="sP-ping扫描"><a href="#sP-ping扫描" class="headerlink" title="-sP   ping扫描"></a>-sP   ping扫描</h3><p>​    同时使用ICMP  TCP  ACK 80返回RST说明主机运行</p>
-<h3 id="sU-UDP扫描"><a href="#sU-UDP扫描" class="headerlink" title="-sU  UDP扫描"></a>-sU  UDP扫描</h3><p>   发送0字节UDP包，快速扫描windows的UDP端口</p>
-<h3 id="sA-ACK扫描"><a href="#sA-ACK扫描" class="headerlink" title="-sA  ACK扫描"></a>-sA  ACK扫描</h3><p>  TCP ACK扫描</p>
-<p>，防火墙开启时，查看防火墙未过滤端口</p>
-<h3 id="P0"><a href="#P0" class="headerlink" title="-P0"></a>-P0</h3><p>  NMAP扫描前不ping主机</p>
-<h3 id="PT"><a href="#PT" class="headerlink" title="-PT"></a>-PT</h3><p>  扫描前使用TCP  ACK包确定主机是否在运行  默认80端口<br>    -PS  TCP  SYN扫描</p>
-<h3 id="PI"><a href="#PI" class="headerlink" title="-PI"></a>-PI</h3><p>  ping扫描</p>
-<h3 id="O"><a href="#O" class="headerlink" title="-O"></a>-O</h3><p> 扫描TCP/IP指纹特征，确定目标主机类型</p>
-<h3 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h3><p> 冗余模式扫描，可以得到扫描时的详细信息</p>
-<h3 id="S"><a href="#S" class="headerlink" title="-S"></a>-S</h3><p>   欺骗扫描时，用来指定主机IP</p>
+</div>
 
-                <hr>
-                
+<hr>
 
-                <ul class="pager">
+
+
+<div class="post-preview "
+     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
+    <a href="/2019/08/08/用路由器做DHCP/">
+        <h2 class="post-title">
+            用路由器做DHCP
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-08
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                用路由器做DHCPR1(config)# ip dhcp pool vlan100   配置地址池名称
+R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围
+R1(dhcp-config)#default-router  19..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+
+<!-- 翻页 pager -->
+
+<ul class="pager">
+    
+    
+</ul>
+
+
+        </div>
+        <!-- Sidebar Container -->
+        <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+
+            <!-- About Me -->
+            <section class="visible-md visible-lg" style="padding: 0 18px">
+                <div class="short-about">
+                    <!--侧边栏头像-->
                     
+                    <img src="http://wx3.sinaimg.cn/large/006BhCi3gy1g5y0czkbmej30go0gyaaf.jpg"/>
                     
-                    <li class="next">
-                        <a href="/2019/08/09/html标签/" data-toggle="tooltip" data-placement="top"
-                           title="Html标签">Next Post &rarr;</a>
-                    </li>
+                    <h5><a href="/about/">zz</a></h5>
                     
-                </ul>
+                    <p>做一个努力向上的男人</p>
+                    
+                    <hr>
+                    <!-- SNS Link 社交 -->
+                    <ul class="list-inline">
+                        
+                        
+                        
 
-                
+                        
+                        <li>
+                            <a target="_blank" href="http://weibo.com/6047720191">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                                        </span>
+                            </a>
+                        </li>
+                        
 
-                
+                        
 
+                        
+                        <li>
+                            <a target="_blank" href="https://github.com/zzz-zed">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                        </span>
+                            </a>
+                        </li>
+                        
 
-                <!--加入新的评论系统-->
-                
-
-                
-
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap"><span class="toc-text">nmap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#nmap的功能"><span class="toc-text">nmap的功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sT-tcp扫描"><span class="toc-text">-sT  tcp扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sS-SYN扫描"><span class="toc-text">-sS    SYN扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sF-FIN扫描"><span class="toc-text">-sF     FIN扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sX-Xmas扫描"><span class="toc-text">-sX    Xmas扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sN-null扫描"><span class="toc-text">-sN   -null扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sP-ping扫描"><span class="toc-text">-sP   ping扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sU-UDP扫描"><span class="toc-text">-sU  UDP扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sA-ACK扫描"><span class="toc-text">-sA  ACK扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P0"><span class="toc-text">-P0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PT"><span class="toc-text">-PT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PI"><span class="toc-text">-PI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O"><span class="toc-text">-O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v"><span class="toc-text">-v</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S"><span class="toc-text">-S</span></a></li></ol></li></ol></li></ol>
+                        
+                    </ul>
                 </div>
-            </div>
+            </section>
+
+            <!-- Featured Tags  标签 -->
+            
+            <section>
+                <div class="tags">
+                    
+                    
+                    <a href="/tags/#渗透" title="渗透"
+                       rel="3">渗透</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <a href="/tags/#路由交换技术" title="路由交换技术"
+                       rel="2">路由交换技术</a>
+                    
+                    
+                    
+                    
+                </div>
+            </section>
+            
+
+            
+
         </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/#工具"
-                           title="工具">工具</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-
     </div>
-</article>
-
-
-
-
-
-
+</div>
 
 <!-- Footer -->
 <!-- Footer -->
