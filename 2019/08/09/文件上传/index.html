@@ -3,6 +3,7 @@
 
 <!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.9.0">
+    <meta name="referrer" content="no-referrer">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +38,7 @@
 <style>
 
     header.intro-header {
-        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+        background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')
     }
 </style>
 <!-- hack iOS CSS :active style -->
@@ -76,6 +77,14 @@
                         <a href="/">Home</a>
                     </li>
 					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
                     
 					
 					
@@ -120,13 +129,13 @@
 
 
 <img class="wechat-title-img"
-     src="">
+     src="https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('')
+        background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')
     }
 
     
@@ -165,9 +174,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><a id="more"></a>
-
-<h2 id="本地验证绕过-js验证绕过"><a href="#本地验证绕过-js验证绕过" class="headerlink" title="本地验证绕过  js验证绕过"></a>本地验证绕过  js验证绕过</h2><p>​    文件上传时在本地服务器进行验证，此时可以将php文件的后缀改为符合要求的，然后用burp suite抓包，再将后缀改为php即可</p>
+                <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="本地验证绕过-js验证绕过"><a href="#本地验证绕过-js验证绕过" class="headerlink" title="本地验证绕过  js验证绕过"></a>本地验证绕过  js验证绕过</h2><p>​    文件上传时在本地服务器进行验证，此时可以将php文件的后缀改为符合要求的，然后用burp suite抓包，再将后缀改为php即可</p>
 <h2 id="文件后缀绕过"><a href="#文件后缀绕过" class="headerlink" title="文件后缀绕过"></a>文件后缀绕过</h2><p>​    建立一个a.php.xxx的文件，xxx为读不出来的文件后缀即可<br>​    原理是文件读取时是从右往左读取，当后缀读不出来时，到.php时会执行php文件</p>
 <h2 id="文件类型绕过"><a href="#文件类型绕过" class="headerlink" title="文件类型绕过"></a>文件类型绕过</h2><p>​    验证文件类型的mime值，当mime值符合要求时才能上传，此时只需要burp suite抓包，将mime值改为符合要求的即可</p>
 <h2 id="文件截断绕过"><a href="#文件截断绕过" class="headerlink" title="文件截断绕过"></a>文件截断绕过</h2><p>源码对上传文件进行php限制<br>截断字符:0x00    %00    /00   char()为null，后面内容会被截断<br>利用条件：php版本小于5.3.4    php参数magic_quotes_gpc设置为关off</p>
@@ -182,13 +189,13 @@
                     
                     <li class="previous">
                         <a href="/2019/08/09/html标签/" data-toggle="tooltip" data-placement="top"
-                           title="html标签">&larr; Previous Post</a>
+                           title="Html标签">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
                         <a href="/2019/08/09/热备份路由协议/" data-toggle="tooltip" data-placement="top"
-                           title="热备份路由协议HSRP">Next Post &rarr;</a>
+                           title="热备份路由协议">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -257,29 +264,11 @@
                 <ul class="list-inline text-center">
                 
                 
-                    <li>
-                        <a target="_blank" href="https://twitter.com/zzz">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/zzz">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
                 
 
                 
                     <li>
-                        <a target="_blank" href="http://weibo.com/zzz">
+                        <a target="_blank" href="http://weibo.com/6047720191">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -368,6 +357,18 @@
 
 <!-- Baidu Tongji -->
 
+<script>
+    var _baId = '10000041824';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 
 <!-- swiftype -->
 <script type="text/javascript">
@@ -382,7 +383,7 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <!--wechat title img-->
-<img class="wechat-title-img" src="">
+<img class="wechat-title-img" src="http://wx3.sinaimg.cn/large/006BhCi3gy1g5y0czkbmej30go0gyaaf.jpg">
 </body>
 
 </html>

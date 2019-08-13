@@ -3,6 +3,7 @@
 
 <!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.9.0">
+    <meta name="referrer" content="no-referrer">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +38,7 @@
 <style>
 
     header.intro-header {
-        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+        background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')
     }
 </style>
 <!-- hack iOS CSS :active style -->
@@ -76,6 +77,14 @@
                         <a href="/">Home</a>
                     </li>
 					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
                     
 					
 					
@@ -120,13 +129,13 @@
 
 
 <img class="wechat-title-img"
-     src="">
+     src="https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('')
+        background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')
     }
 
     
@@ -165,9 +174,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="STP算法"><a href="#STP算法" class="headerlink" title="STP算法"></a>STP算法</h1><a id="more"></a>
-
-<p>STP将一个环形网络生成无环拓扑的步骤</p>
+                <h1 id="STP算法"><a href="#STP算法" class="headerlink" title="STP算法"></a>STP算法</h1><p>STP将一个环形网络生成无环拓扑的步骤</p>
 <p>第一步：选择根网桥</p>
 <p>第二部；选择根端口</p>
 <p>第三步：选择指端口</p>
@@ -209,6 +216,7 @@
 <p>switch(config)#int f0/2</p>
 <p>switch(config)#spanning-tree vlan 10 port-priority 32</p>
 <p>switch(config)#spanning-tree vlan 20 port-priority 16</p>
+<h1 id="本征vlan"><a href="#本征vlan" class="headerlink" title="本征vlan"></a>本征vlan</h1><p>Switch(config-if)#switchport native vlan 99</p>
 
                 <hr>
                 
@@ -217,7 +225,7 @@
                     
                     <li class="previous">
                         <a href="/2019/08/08/用路由器做DHCP/" data-toggle="tooltip" data-placement="top"
-                           title="路由器做DHCP、DHCP中继">&larr; Previous Post</a>
+                           title="用路由器做DHCP">&larr; Previous Post</a>
                     </li>
                     
                     
@@ -237,7 +245,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#STP算法"><span class="toc-text">STP算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-如何选择根网桥"><span class="toc-text">1.如何选择根网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-选择根端口"><span class="toc-text">2.选择根端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-如何选择根端口"><span class="toc-text">(1) 如何选择根端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么是cost值"><span class="toc-text">(2)什么是cost值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-什么是端口ID"><span class="toc-text">(3)什么是端口ID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-选择指定端口"><span class="toc-text">3.选择指定端口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pvst：按vlan生成树"><span class="toc-text">pvst：按vlan生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-划分vlan"><span class="toc-text">1.划分vlan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"><span class="toc-text">2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"><span class="toc-text">3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置端口聚合"><span class="toc-text">配置端口聚合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流量均衡"><span class="toc-text">配置流量均衡</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#STP算法"><span class="toc-text">STP算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-如何选择根网桥"><span class="toc-text">1.如何选择根网桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-选择根端口"><span class="toc-text">2.选择根端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-如何选择根端口"><span class="toc-text">(1) 如何选择根端口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-什么是cost值"><span class="toc-text">(2)什么是cost值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-什么是端口ID"><span class="toc-text">(3)什么是端口ID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-选择指定端口"><span class="toc-text">3.选择指定端口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pvst：按vlan生成树"><span class="toc-text">pvst：按vlan生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-划分vlan"><span class="toc-text">1.划分vlan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"><span class="toc-text">2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"><span class="toc-text">3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置端口聚合"><span class="toc-text">配置端口聚合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置流量均衡"><span class="toc-text">配置流量均衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本征vlan"><span class="toc-text">本征vlan</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -287,29 +295,11 @@
                 <ul class="list-inline text-center">
                 
                 
-                    <li>
-                        <a target="_blank" href="https://twitter.com/zzz">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/zzz">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
                 
 
                 
                     <li>
-                        <a target="_blank" href="http://weibo.com/zzz">
+                        <a target="_blank" href="http://weibo.com/6047720191">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -398,6 +388,18 @@
 
 <!-- Baidu Tongji -->
 
+<script>
+    var _baId = '10000041824';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 
 <!-- swiftype -->
 <script type="text/javascript">
@@ -412,7 +414,7 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <!--wechat title img-->
-<img class="wechat-title-img" src="">
+<img class="wechat-title-img" src="http://wx3.sinaimg.cn/large/006BhCi3gy1g5y0czkbmej30go0gyaaf.jpg">
 </body>
 
 </html>
