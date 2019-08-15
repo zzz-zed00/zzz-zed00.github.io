@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        配置静态路由｜404 NO FOUND
+        OS I 参考模型｜404 NO FOUND
         
     </title>
 
-    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/09/配置静态路由/">
+    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/15/OSI参考模型/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -146,12 +146,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>配置静态路由</h1>
+                    <h1>OS I 参考模型</h1>
                     
                     <span class="meta">
                          作者 zz
                         <span>
-                          日期 2019-08-09
+                          日期 2019-08-15
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -166,7 +166,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            配置静态路由
+            OS I 参考模型
         </span>
     </div>
 </header>
@@ -177,17 +177,23 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h1><p>IP route +目标地址  +转发接口地址</p>
-<h2 id="默认路由"><a href="#默认路由" class="headerlink" title="默认路由"></a>默认路由</h2><p>在不知道外部网络的情况下</p>
-<p>IP route 0.0.0.0 0.0.0.0 f0/0</p>
-<h2 id="使用静态路由实现负载均衡"><a href="#使用静态路由实现负载均衡" class="headerlink" title="使用静态路由实现负载均衡"></a>使用静态路由实现负载均衡</h2><p>R1(config)#ip route 23.1.1.0 255.255.255.0 172.16.1.2</p>
-<p>R1(config)#ip route 23.1.1.0 255.255.255.0 12.1.1.2</p>
-<p>R2(config)#ip route 12.1.1.0 255.255.255.0 172.16.1.1</p>
-<p>R2(config)#ip route 12.1.1.0 255.255.255.0 23.1.1.1</p>
-<p>R3(config)#ip route 172.16.1.0 255.255.255.0 12.1.1.1</p>
-<p>R3(config)#ip route 172.16.1.0 255.255.255.0 23.1.1.2</p>
-<h2 id="选择静态路由"><a href="#选择静态路由" class="headerlink" title="选择静态路由"></a>选择静态路由</h2><p>静态路由会根据子网掩码大的优先选择，即静态路由的最长匹配原则</p>
-<h2 id="浮动静态路由"><a href="#浮动静态路由" class="headerlink" title="浮动静态路由"></a>浮动静态路由</h2><p>R3(config)#ip route 172.16.1.0 255.255.255.0 23.1.1.2 10(浮动，值越小优先)</p>
+                <h1 id="OS-I-参考模型"><a href="#OS-I-参考模型" class="headerlink" title="OS I 参考模型"></a>OS I 参考模型</h1><h2 id="OS-I-模型包含7层"><a href="#OS-I-模型包含7层" class="headerlink" title="OS I 模型包含7层"></a>OS I 模型包含7层</h2><p>应用层：用户界面  ————文件，打印，消息，数据库和应用程序服务</p>
+<p>表示层： 表示数据，进行加密等处理  ————数据加密，压缩和转换服务</p>
+<p>会话层： 将不同应用程序的数据分类  ————对话控制</p>
+<p>传输层： 提供可靠或不可靠的传输，重传前执行纠错  ————端到端连接</p>
+<p>​                TCP三次握手  UP</p>
+<p>网络层： 提供逻辑地址，路由器使用他们选择路径  ————路由选择</p>
+<p>​                路由器，I P</p>
+<p>数据链路层： 将分组拆分为字节，并将字节合成帧  ————成帧</p>
+<p>​                交换机  LL C    MAC</p>
+<p>物理层： 设备间传输比特        ————物理拓扑</p>
+<p>​                线缆，双绞线，直连线，光缆，集线器</p>
+<h2 id="数据封装与解封装"><a href="#数据封装与解封装" class="headerlink" title="数据封装与解封装"></a>数据封装与解封装</h2><h2 id="网络架构三层模型"><a href="#网络架构三层模型" class="headerlink" title="网络架构三层模型"></a>网络架构三层模型</h2><p>核心层</p>
+<p>​                三层交换机：考虑性能，冗余，传输速率</p>
+<p>汇聚层，集聚层</p>
+<p>​                网络互联</p>
+<p>接入层</p>
+<p>​                交换机</p>
 
                 <hr>
                 
@@ -195,14 +201,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/08/09/热备份路由协议/" data-toggle="tooltip" data-placement="top"
-                           title="热备份路由协议">&larr; Previous Post</a>
+                        <a href="/2019/08/15/TCPIP和DoD模型/" data-toggle="tooltip" data-placement="top"
+                           title="TCP/IP和DoD模型">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2019/08/09/ssh远程管理网路设备：/" data-toggle="tooltip" data-placement="top"
-                           title="Ssh远程管理网路设备">Next Post &rarr;</a>
+                        <a href="/2019/08/09/nmap/" data-toggle="tooltip" data-placement="top"
+                           title="Nmap的使用">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -221,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#静态路由"><span class="toc-text">静态路由</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#默认路由"><span class="toc-text">默认路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用静态路由实现负载均衡"><span class="toc-text">使用静态路由实现负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择静态路由"><span class="toc-text">选择静态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动静态路由"><span class="toc-text">浮动静态路由</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OS-I-参考模型"><span class="toc-text">OS I 参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OS-I-模型包含7层"><span class="toc-text">OS I 模型包含7层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据封装与解封装"><span class="toc-text">数据封装与解封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络架构三层模型"><span class="toc-text">网络架构三层模型</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

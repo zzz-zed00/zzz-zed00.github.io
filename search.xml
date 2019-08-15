@@ -4,6 +4,63 @@
   
     
     <entry>
+      <title>动态路由</title>
+      <link href="/2019/08/15/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/"/>
+      <url>/2019/08/15/%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="动态路由RIP"><a href="#动态路由RIP" class="headerlink" title="动态路由RIP"></a>动态路由RIP</h1><p>根据拓扑或流量改变而自动调整</p><h2 id="RIP解决环路的方法"><a href="#RIP解决环路的方法" class="headerlink" title="RIP解决环路的方法"></a>RIP解决环路的方法</h2><p>1.定义最大跳数（15）</p><p>2.水平分割</p><p>3.路由毒化或毒性逆转</p><p>4.抑制计时器</p><p>5.触发更新</p><h2 id="RIP路由协议版本"><a href="#RIP路由协议版本" class="headerlink" title="RIP路由协议版本"></a>RIP路由协议版本</h2><p>RIPv1 发送路由更新时不携带子网掩码，宣告主类网络，属于有类路由协议</p><p>发送路由更新，目标是广播地址：255.255.255.255</p><p>RIPv2发送路由更新时携带子网掩码，属于无类网络</p><h2 id="开启RIP协议"><a href="#开启RIP协议" class="headerlink" title="开启RIP协议"></a>开启RIP协议</h2><p>R1(config)#router rip        开启RIP协议 </p><p>R1(config-router)#version 2     选择版本</p><p>R1(config-router)#network 10.1.0.1     宣告</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TCP/IP和DoD模型</title>
+      <link href="/2019/08/15/TCPIP%E5%92%8CDoD%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2019/08/15/TCPIP%E5%92%8CDoD%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="TCP-IP和DoD模型"><a href="#TCP-IP和DoD模型" class="headerlink" title="TCP/IP和DoD模型"></a>TCP/IP和DoD模型</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>OS I 参考模型</title>
+      <link href="/2019/08/15/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2019/08/15/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="OS-I-参考模型"><a href="#OS-I-参考模型" class="headerlink" title="OS I 参考模型"></a>OS I 参考模型</h1><h2 id="OS-I-模型包含7层"><a href="#OS-I-模型包含7层" class="headerlink" title="OS I 模型包含7层"></a>OS I 模型包含7层</h2><p>应用层：用户界面  ————文件，打印，消息，数据库和应用程序服务</p><p>表示层： 表示数据，进行加密等处理  ————数据加密，压缩和转换服务</p><p>会话层： 将不同应用程序的数据分类  ————对话控制</p><p>传输层： 提供可靠或不可靠的传输，重传前执行纠错  ————端到端连接</p><p>​                TCP三次握手  UP</p><p>网络层： 提供逻辑地址，路由器使用他们选择路径  ————路由选择</p><p>​                路由器，I P</p><p>数据链路层： 将分组拆分为字节，并将字节合成帧  ————成帧</p><p>​                交换机  LL C    MAC</p><p>物理层： 设备间传输比特        ————物理拓扑</p><p>​                线缆，双绞线，直连线，光缆，集线器</p><h2 id="数据封装与解封装"><a href="#数据封装与解封装" class="headerlink" title="数据封装与解封装"></a>数据封装与解封装</h2><h2 id="网络架构三层模型"><a href="#网络架构三层模型" class="headerlink" title="网络架构三层模型"></a>网络架构三层模型</h2><p>核心层</p><p>​                三层交换机：考虑性能，冗余，传输速率</p><p>汇聚层，集聚层</p><p>​                网络互联</p><p>接入层</p><p>​                交换机</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Nmap的使用</title>
       <link href="/2019/08/09/nmap/"/>
       <url>/2019/08/09/nmap/</url>
@@ -53,6 +110,44 @@
         <tags>
             
             <tag> 渗透 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>热备份路由协议</title>
+      <link href="/2019/08/09/%E7%83%AD%E5%A4%87%E4%BB%BD%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2019/08/09/%E7%83%AD%E5%A4%87%E4%BB%BD%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="热备份路由协议"><a href="#热备份路由协议" class="headerlink" title="热备份路由协议"></a>热备份路由协议</h1><h2 id="HSRP配置"><a href="#HSRP配置" class="headerlink" title="HSRP配置"></a>HSRP配置</h2><p>sw(config)#int vlan 10 </p><p>sw(config-if)#standby 10 ip 192.168.10.250          将vlan10这个端口设置到10并配置一个地址</p><p>sw(config-if)#standby 10 priority 120   设置优先级</p><p>sw(config)#standby  10  times 3  10  设置每隔3s发一次，10s保持</p><p>sw(config)#standby 10 preempt  设置抢占模式</p><p>sw(config)#standby 10 track f0/22   设置跟踪端口</p><p>两边路由器都要设置</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>配置静态路由</title>
+      <link href="/2019/08/09/%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1/"/>
+      <url>/2019/08/09/%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h1><p>IP route +目标地址  +转发接口地址</p><h2 id="默认路由"><a href="#默认路由" class="headerlink" title="默认路由"></a>默认路由</h2><p>在不知道外部网络的情况下</p><p>IP route 0.0.0.0 0.0.0.0 f0/0</p><h2 id="使用静态路由实现负载均衡"><a href="#使用静态路由实现负载均衡" class="headerlink" title="使用静态路由实现负载均衡"></a>使用静态路由实现负载均衡</h2><p>R1(config)#ip route 23.1.1.0 255.255.255.0 172.16.1.2</p><p>R1(config)#ip route 23.1.1.0 255.255.255.0 12.1.1.2</p><p>R2(config)#ip route 12.1.1.0 255.255.255.0 172.16.1.1</p><p>R2(config)#ip route 12.1.1.0 255.255.255.0 23.1.1.1</p><p>R3(config)#ip route 172.16.1.0 255.255.255.0 12.1.1.1</p><p>R3(config)#ip route 172.16.1.0 255.255.255.0 23.1.1.2</p><h2 id="选择静态路由"><a href="#选择静态路由" class="headerlink" title="选择静态路由"></a>选择静态路由</h2><p>静态路由会根据子网掩码大的优先选择，即静态路由的最长匹配原则</p><h2 id="浮动静态路由"><a href="#浮动静态路由" class="headerlink" title="浮动静态路由"></a>浮动静态路由</h2><p>R3(config)#ip route 172.16.1.0 255.255.255.0 23.1.1.2 10(浮动，值越小优先)</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
             
         </tags>
       
@@ -142,6 +237,25 @@
       <url>/2019/08/08/%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E5%81%9ADHCP/</url>
       
         <content type="html"><![CDATA[<h1 id="用路由器做DHCP"><a href="#用路由器做DHCP" class="headerlink" title="用路由器做DHCP"></a>用路由器做DHCP</h1><p>R1(config)# ip dhcp pool vlan100   配置地址池名称</p><p>R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围</p><p>R1(dhcp-config)#default-router  192.168.100.254   分配的网关地址</p><p>R1(dhcp-config)#dns-server 61.139.2.69</p><p>R1(config)#ip dhcp excluded-address 192.168.1 192.168.1.10  排除地址</p><h1 id="DHCP中继"><a href="#DHCP中继" class="headerlink" title="DHCP中继"></a>DHCP中继</h1><h2 id="1-配置dhcp服务器"><a href="#1-配置dhcp服务器" class="headerlink" title="1.配置dhcp服务器"></a>1.配置dhcp服务器</h2><h2 id="2-在网关接口上配置转发"><a href="#2-在网关接口上配置转发" class="headerlink" title="2.在网关接口上配置转发"></a>2.在网关接口上配置转发</h2><p>switch(config)#int  vlan 10</p><p>ip(config-if)#helper-address 192.168.30.1</p><h2 id="3-pc端"><a href="#3-pc端" class="headerlink" title="3.pc端"></a>3.pc端</h2><p>pc&gt;ipconfig /release</p><p>pc&gt;ipconfig /renew</p><p>pc&gt;ipconfig /all</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STP算法、pvst生成树</title>
+      <link href="/2019/08/08/stp%E7%AE%97%E6%B3%95%E3%80%81pvst%E7%94%9F%E6%88%90%E6%A0%91/"/>
+      <url>/2019/08/08/stp%E7%AE%97%E6%B3%95%E3%80%81pvst%E7%94%9F%E6%88%90%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<h1 id="STP算法"><a href="#STP算法" class="headerlink" title="STP算法"></a>STP算法</h1><p>STP将一个环形网络生成无环拓扑的步骤</p><p>第一步：选择根网桥</p><p>第二部；选择根端口</p><p>第三步：选择指端口</p><h2 id="1-如何选择根网桥"><a href="#1-如何选择根网桥" class="headerlink" title="1.如何选择根网桥"></a>1.如何选择根网桥</h2><p>根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是网桥。如果优先级相同，谁的MAC地址小谁就是网桥。</p><p>BID：优先级+MAC地址</p><p>​    默认情况下交换机的优先级是：37768</p><p>​    查看交换机的MAC地址：switch#show version</p><p>​    base ethernetMAC Address：0001，967e，9162</p><h2 id="2-选择根端口"><a href="#2-选择根端口" class="headerlink" title="2.选择根端口"></a>2.选择根端口</h2><h4 id="1-如何选择根端口"><a href="#1-如何选择根端口" class="headerlink" title="(1) 如何选择根端口"></a>(1) 如何选择根端口</h4><p>在非根网桥上选择一个到根网桥最近的端口作为根端口，选择端口的依据是：</p><p>​    根路径的成本（cost值）从端口出发到根桥最低</p><p>​    直连网桥的网桥ID最小</p><p>​    直连网桥的端口ID最小</p><h3 id="2-什么是cost值"><a href="#2-什么是cost值" class="headerlink" title="(2)什么是cost值"></a>(2)什么是cost值</h3><p>根路径成本是网桥到根网桥的路径上所有链路的成本之和。</p><h3 id="3-什么是端口ID"><a href="#3-什么是端口ID" class="headerlink" title="(3)什么是端口ID"></a>(3)什么是端口ID</h3><p>端口优先级(默认是128)+端口编号</p><h2 id="3-选择指定端口"><a href="#3-选择指定端口" class="headerlink" title="3.选择指定端口"></a>3.选择指定端口</h2><p>依据是</p><p>​    在每根网桥上选择一个指定端口，根桥上的端口全是指定端口。</p><p>非根桥上的指定端口：</p><p>​    根路径成本最低【从非根桥到根桥】</p><p>​    端口所在的网桥ID值较小</p><h1 id="pvst：按vlan生成树"><a href="#pvst：按vlan生成树" class="headerlink" title="pvst：按vlan生成树"></a>pvst：按vlan生成树</h1><h2 id="1-划分vlan"><a href="#1-划分vlan" class="headerlink" title="1.划分vlan"></a>1.划分vlan</h2><h2 id="2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"><a href="#2-设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥" class="headerlink" title="2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥"></a>2.设置sw1作为vlan10的根桥，sw2作为vlan10的备份根桥</h2><p>sw1(config)#spanning-tree vlan 10 root primary</p><p>sw2(config)#spanning-tree vlan 10 root secondary</p><h2 id="3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"><a href="#3-设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥" class="headerlink" title="3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥"></a>3.设置sw2作为vlan20的根桥，sw1作为vlan20的备份根桥</h2><p>sw2(config)#spanning-tree vlan 20 root primary</p><p>sw1(config)#spanning-tree vlan 20 root secondary</p><h1 id="配置端口聚合"><a href="#配置端口聚合" class="headerlink" title="配置端口聚合"></a>配置端口聚合</h1><p>sw1(config)#int port-channel 1  开启一个逻辑端口</p><p>sw1(config)#sw mo trunk</p><p>sw2(config)#int port-channel 1</p><p>sw2(config)#mo trunk</p><p>sw1(config)#int f0/4</p><p>sw1(config)#sw mo trunk</p><p>sw2(config)#int f0/4</p><p>sw2(config)#sw mo trunk</p><p>sw1(config)#int range f0/1,f0/4</p><p>sw1(config)#channel-group 1 mode on</p><p>sw2(config)#int range f0/1,f0/4</p><p>sw2(config)#channel-group 1 mode on</p><h1 id="配置流量均衡"><a href="#配置流量均衡" class="headerlink" title="配置流量均衡"></a>配置流量均衡</h1><p>switch(config)#int f0/1</p><p>switch(config)#spanning-tree vlan 10 port-priority 16</p><p>switch(config)#spanning-tree vlan 20 port-priority 32</p><p>switch(config)#int f0/2</p><p>switch(config)#spanning-tree vlan 10 port-priority 32</p><p>switch(config)#spanning-tree vlan 20 port-priority 16</p><h1 id="本征vlan"><a href="#本征vlan" class="headerlink" title="本征vlan"></a>本征vlan</h1><p>Switch(config-if)#switchport native vlan 99</p>]]></content>
       
       
       

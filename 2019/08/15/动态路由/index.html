@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        配置静态路由｜404 NO FOUND
+        动态路由｜404 NO FOUND
         
     </title>
 
-    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/09/配置静态路由/">
+    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/15/动态路由/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -146,12 +146,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>配置静态路由</h1>
+                    <h1>动态路由</h1>
                     
                     <span class="meta">
                          作者 zz
                         <span>
-                          日期 2019-08-09
+                          日期 2019-08-15
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -166,7 +166,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            配置静态路由
+            动态路由
         </span>
     </div>
 </header>
@@ -177,32 +177,28 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h1><p>IP route +目标地址  +转发接口地址</p>
-<h2 id="默认路由"><a href="#默认路由" class="headerlink" title="默认路由"></a>默认路由</h2><p>在不知道外部网络的情况下</p>
-<p>IP route 0.0.0.0 0.0.0.0 f0/0</p>
-<h2 id="使用静态路由实现负载均衡"><a href="#使用静态路由实现负载均衡" class="headerlink" title="使用静态路由实现负载均衡"></a>使用静态路由实现负载均衡</h2><p>R1(config)#ip route 23.1.1.0 255.255.255.0 172.16.1.2</p>
-<p>R1(config)#ip route 23.1.1.0 255.255.255.0 12.1.1.2</p>
-<p>R2(config)#ip route 12.1.1.0 255.255.255.0 172.16.1.1</p>
-<p>R2(config)#ip route 12.1.1.0 255.255.255.0 23.1.1.1</p>
-<p>R3(config)#ip route 172.16.1.0 255.255.255.0 12.1.1.1</p>
-<p>R3(config)#ip route 172.16.1.0 255.255.255.0 23.1.1.2</p>
-<h2 id="选择静态路由"><a href="#选择静态路由" class="headerlink" title="选择静态路由"></a>选择静态路由</h2><p>静态路由会根据子网掩码大的优先选择，即静态路由的最长匹配原则</p>
-<h2 id="浮动静态路由"><a href="#浮动静态路由" class="headerlink" title="浮动静态路由"></a>浮动静态路由</h2><p>R3(config)#ip route 172.16.1.0 255.255.255.0 23.1.1.2 10(浮动，值越小优先)</p>
+                <h1 id="动态路由RIP"><a href="#动态路由RIP" class="headerlink" title="动态路由RIP"></a>动态路由RIP</h1><p>根据拓扑或流量改变而自动调整</p>
+<h2 id="RIP解决环路的方法"><a href="#RIP解决环路的方法" class="headerlink" title="RIP解决环路的方法"></a>RIP解决环路的方法</h2><p>1.定义最大跳数（15）</p>
+<p>2.水平分割</p>
+<p>3.路由毒化或毒性逆转</p>
+<p>4.抑制计时器</p>
+<p>5.触发更新</p>
+<h2 id="RIP路由协议版本"><a href="#RIP路由协议版本" class="headerlink" title="RIP路由协议版本"></a>RIP路由协议版本</h2><p>RIPv1 发送路由更新时不携带子网掩码，宣告主类网络，属于有类路由协议</p>
+<p>发送路由更新，目标是广播地址：255.255.255.255</p>
+<p>RIPv2发送路由更新时携带子网掩码，属于无类网络</p>
+<h2 id="开启RIP协议"><a href="#开启RIP协议" class="headerlink" title="开启RIP协议"></a>开启RIP协议</h2><p>R1(config)#router rip        开启RIP协议 </p>
+<p>R1(config-router)#version 2     选择版本</p>
+<p>R1(config-router)#network 10.1.0.1     宣告</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/08/09/热备份路由协议/" data-toggle="tooltip" data-placement="top"
-                           title="热备份路由协议">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/08/09/ssh远程管理网路设备：/" data-toggle="tooltip" data-placement="top"
-                           title="Ssh远程管理网路设备">Next Post &rarr;</a>
+                        <a href="/2019/08/15/TCPIP和DoD模型/" data-toggle="tooltip" data-placement="top"
+                           title="TCP/IP和DoD模型">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -221,7 +217,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#静态路由"><span class="toc-text">静态路由</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#默认路由"><span class="toc-text">默认路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用静态路由实现负载均衡"><span class="toc-text">使用静态路由实现负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择静态路由"><span class="toc-text">选择静态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动静态路由"><span class="toc-text">浮动静态路由</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#动态路由RIP"><span class="toc-text">动态路由RIP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP解决环路的方法"><span class="toc-text">RIP解决环路的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP路由协议版本"><span class="toc-text">RIP路由协议版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启RIP协议"><span class="toc-text">开启RIP协议</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

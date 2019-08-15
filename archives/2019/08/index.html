@@ -154,6 +154,85 @@
 
 <div class="post-preview "
      style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
+    <a href="/2019/08/15/动态路由/">
+        <h2 class="post-title">
+            动态路由
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                动态路由RIP根据拓扑或流量改变而自动调整
+RIP解决环路的方法1.定义最大跳数（15）
+2.水平分割
+3.路由毒化或毒性逆转
+4.抑制计时器
+5.触发更新
+RIP路由协议版本RIPv1 发送路由更新时不携带子网掩码，宣告主类网络，属于有类路由协议
+发送路由更新，目标是广播地址：255.255...
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
+    <a href="/2019/08/15/TCPIP和DoD模型/">
+        <h2 class="post-title">
+            TCP/IP和DoD模型
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                TCP/IP和DoD模型
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
+    <a href="/2019/08/15/OSI参考模型/">
+        <h2 class="post-title">
+            OS I 参考模型
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                OS I 参考模型OS I 模型包含7层应用层：用户界面  ————文件，打印，消息，数据库和应用程序服务
+表示层： 表示数据，进行加密等处理  ————数据加密，压缩和转换服务
+会话层： 将不同应用程序的数据分类  ————对话控制
+传输层： 提供可靠或不可靠的传输，重传前执行纠错  ————..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
     <a href="/2019/08/09/nmap/">
         <h2 class="post-title">
             Nmap的使用
@@ -228,9 +307,9 @@
 
 <div class="post-preview "
      style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/09/ssh远程管理网路设备：/">
+    <a href="/2019/08/09/热备份路由协议/">
         <h2 class="post-title">
-            Ssh远程管理网路设备
+            热备份路由协议
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-09
@@ -238,13 +317,9 @@
         
         <div class="post-content-preview">
             <p>
-                ssh远程管理网路设备：telnet  也可以管理，不过telnet使明文传输  telnet使用23端口
-为了提高安全，使用ssh，密码进行了加密  使用22端口
-配置ssh：
-配置交换机名字
-switch(config)#hostname  sw1
-配置域名
-sw1(config)#ip d..
+                热备份路由协议HSRP配置sw(config)#int vlan 10 
+sw(config-if)#standby 10 ip 192.168.10.250          将vlan10这个端口设置到10并配置一个地址
+sw(config-if)#standby 10 priority 1..
             </p>
         </div>
     </a>
@@ -257,9 +332,9 @@ sw1(config)#ip d..
 
 <div class="post-preview "
      style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/09/SQL注入绕过/">
+    <a href="/2019/08/09/配置静态路由/">
         <h2 class="post-title">
-            SQL注入绕过
+            配置静态路由
         </h2>
         <p class="post-meta">
             <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-09
@@ -267,84 +342,11 @@ sw1(config)#ip d..
         
         <div class="post-content-preview">
             <p>
-                SQL注入绕过1.空格绕过：​    /**/    %a0   括号也可以绕过空格 括号两边可以不用加空格如：where（1=1）
-2.引号绕过：​    十六进制绕过：将引号括起来的语句用十六进制表示
-3.逗号绕过：​    from  for绕过，如select substr(databa..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/08/SQL注入/">
-        <h2 class="post-title">
-            SQL注入
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-08
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                SQL注入sql注入是web应用程序对用户的输入数据的合法性没有判断，前端传入的数据是攻击者可控的，并且可以带入数据库查询，攻击者可以构造不同的sql语句来实现自己的目的
-注入之前的尝试我们可以通过输入带有特殊符号的不同的参数来对输入点进行测试，该位置是否存在注入点。
-1
-1 and 1=1
-1..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/08/python/">
-        <h2 class="post-title">
-            Python学习笔记
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-08
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                python学习笔记输入输出print(' '，“ ”)  #输出单双引号皆可  引号括起来就是字符，不括就是整型print （'''test	test	test'''）#换行输出单双引号皆可	a=input（'  '） #键盘输入a只能是str	#可以用a=int(a) 将a转化为整型	 #字..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/08/用路由器做DHCP/">
-        <h2 class="post-title">
-            用路由器做DHCP
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-08
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                用路由器做DHCPR1(config)# ip dhcp pool vlan100   配置地址池名称
-R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围
-R1(dhcp-config)#default-router  19..
+                静态路由IP route +目标地址  +转发接口地址
+默认路由在不知道外部网络的情况下
+IP route 0.0.0.0 0.0.0.0 f0/0
+使用静态路由实现负载均衡R1(config)#ip route 23.1.1.0 255.255.255.0 172.16.1.2
+R1(conf..
             </p>
         </div>
     </a>
@@ -360,6 +362,10 @@ R1(dhcp-config)#default-router  19..
 
 <ul class="pager">
     
+    
+    <li class="next">
+        <a href="/archives/2019/08/page/2/">Older Posts &rarr;</a>
+    </li>
     
 </ul>
 
@@ -437,7 +443,7 @@ R1(dhcp-config)#default-router  19..
                     
                     
                     <a href="/tags/#路由交换技术" title="路由交换技术"
-                       rel="2">路由交换技术</a>
+                       rel="8">路由交换技术</a>
                     
                     
                     
