@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        OS I 参考模型｜404 NO FOUND
+        OSI 参考模型｜404 NO FOUND
         
     </title>
 
@@ -146,7 +146,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>OS I 参考模型</h1>
+                    <h1>OSI 参考模型</h1>
                     
                     <span class="meta">
                          作者 zz
@@ -166,7 +166,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            OS I 参考模型
+            OSI 参考模型
         </span>
     </div>
 </header>
@@ -177,18 +177,30 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="OS-I-参考模型"><a href="#OS-I-参考模型" class="headerlink" title="OS I 参考模型"></a>OS I 参考模型</h1><h2 id="OS-I-模型包含7层"><a href="#OS-I-模型包含7层" class="headerlink" title="OS I 模型包含7层"></a>OS I 模型包含7层</h2><p>应用层：用户界面  ————文件，打印，消息，数据库和应用程序服务</p>
+                <h1 id="OSI-参考模型"><a href="#OSI-参考模型" class="headerlink" title="OSI 参考模型"></a>OSI 参考模型</h1><p>是IOS开发的</p>
+<h2 id="OSI-模型包含7层"><a href="#OSI-模型包含7层" class="headerlink" title="OSI 模型包含7层"></a>OSI 模型包含7层</h2><p>OSI模型包含7层，分为两组：</p>
+<h3 id="上三层"><a href="#上三层" class="headerlink" title="上三层"></a>上三层</h3><p>应用层：用户界面  ————文件，打印，消息，数据库和应用程序服务</p>
+<p>​                用户和计算机交流的场所，是实际应用程序之间的接口，如FTP、TFTP等</p>
 <p>表示层： 表示数据，进行加密等处理  ————数据加密，压缩和转换服务</p>
+<p>​                向应用层提供数据，负责数据转换和代码格式化。</p>
 <p>会话层： 将不同应用程序的数据分类  ————对话控制</p>
-<p>传输层： 提供可靠或不可靠的传输，重传前执行纠错  ————端到端连接</p>
-<p>​                TCP三次握手  UP</p>
+<p>​                负责在表示层实体之间建立、管理、和终止会话，还对设备或节点之间对话进行控制。</p>
+<h3 id="下四层"><a href="#下四层" class="headerlink" title="下四层"></a>下四层</h3><p>传输层： 提供可靠或不可靠的传输，重传前执行纠错  ————端到端连接</p>
+<p>​                将数据进行分段并重组为数据流。并在发送主机和目标主机之间建立一个逻辑链接。TCP三次握手连接，  UDP</p>
+<h4 id="TCP-UDP协议"><a href="#TCP-UDP协议" class="headerlink" title="TCP/UDP协议"></a>TCP/UDP协议</h4><p>​                TCP协议提供可靠的连接服务，采用三次握手建立一个连接。</p>
+<p>​                1.客户端发送一个syn包到服务器，并且自身进入SYN_SEND状态</p>
+<p>​                2.服务器接收到syn包，确认客户的syn(ack=j+1)，同时自己也发送一个SYN包，并切自身进入SYN_RECV状态</p>
+<p>​                3.客户端收到syn包，确认服务器的SYN(ack=k+1)，客户端和服务器进入ESTABLISHED状态，完成三次握手</p>
 <p>网络层： 提供逻辑地址，路由器使用他们选择路径  ————路由选择</p>
-<p>​                路由器，I P</p>
+<p>​                管理设备编址、跟踪设备在网络中的位置并确定最佳的数据传输路径，网络层必须在位于不同网络中的设备之间传输数据流。路由器，I P</p>
 <p>数据链路层： 将分组拆分为字节，并将字节合成帧  ————成帧</p>
+<p>​                介质访问控制（MAC）子层802.3 </p>
+<p>​                逻辑链路控制（LLC）子层802.2</p>
 <p>​                交换机  LL C    MAC</p>
 <p>物理层： 设备间传输比特        ————物理拓扑</p>
 <p>​                线缆，双绞线，直连线，光缆，集线器</p>
-<h2 id="数据封装与解封装"><a href="#数据封装与解封装" class="headerlink" title="数据封装与解封装"></a>数据封装与解封装</h2><h2 id="网络架构三层模型"><a href="#网络架构三层模型" class="headerlink" title="网络架构三层模型"></a>网络架构三层模型</h2><p>核心层</p>
+<h2 id="数据封装与解封装"><a href="#数据封装与解封装" class="headerlink" title="数据封装与解封装"></a>数据封装与解封装</h2><p><img src="http://wx4.sinaimg.cn/large/006BhCi3gy1g60eartagtj30c806xdhw.jpg" alt="&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;"></p>
+<h2 id="网络架构三层模型"><a href="#网络架构三层模型" class="headerlink" title="网络架构三层模型"></a>网络架构三层模型</h2><p>核心层</p>
 <p>​                三层交换机：考虑性能，冗余，传输速率</p>
 <p>汇聚层，集聚层</p>
 <p>​                网络互联</p>
@@ -227,7 +239,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OS-I-参考模型"><span class="toc-text">OS I 参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OS-I-模型包含7层"><span class="toc-text">OS I 模型包含7层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据封装与解封装"><span class="toc-text">数据封装与解封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络架构三层模型"><span class="toc-text">网络架构三层模型</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OSI-参考模型"><span class="toc-text">OSI 参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI-模型包含7层"><span class="toc-text">OSI 模型包含7层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#上三层"><span class="toc-text">上三层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下四层"><span class="toc-text">下四层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-UDP协议"><span class="toc-text">TCP/UDP协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据封装与解封装"><span class="toc-text">数据封装与解封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络架构三层模型"><span class="toc-text">网络架构三层模型</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
