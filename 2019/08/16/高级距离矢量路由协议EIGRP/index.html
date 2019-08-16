@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        用路由器做DHCP｜努力，就会有回报
+        高级距离矢量路由协议EIGRP｜努力，就会有回报
         
     </title>
 
-    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/08/用路由器做DHCP/">
+    <link rel="canonical" href="http://zzz-zed.github.io/2019/08/16/高级距离矢量路由协议EIGRP/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -154,12 +154,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>用路由器做DHCP</h1>
+                    <h1>高级距离矢量路由协议EIGRP</h1>
                     
                     <span class="meta">
                          作者 zz
                         <span>
-                          日期 2019-08-08
+                          日期 2019-08-16
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -174,7 +174,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            用路由器做DHCP
+            高级距离矢量路由协议EIGRP
         </span>
     </div>
 </header>
@@ -185,31 +185,62 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="用路由器做DHCP"><a href="#用路由器做DHCP" class="headerlink" title="用路由器做DHCP"></a>用路由器做DHCP</h1><p>R1(config)# ip dhcp pool vlan100   配置地址池名称</p>
-<p>R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围</p>
-<p>R1(dhcp-config)#default-router  192.168.100.254   分配的网关地址</p>
-<p>R1(dhcp-config)#dns-server 61.139.2.69</p>
-<p>R1(config)#ip dhcp excluded-address 192.168.1 192.168.1.10  排除地址</p>
-<h1 id="DHCP中继"><a href="#DHCP中继" class="headerlink" title="DHCP中继"></a>DHCP中继</h1><h2 id="1-配置dhcp服务器"><a href="#1-配置dhcp服务器" class="headerlink" title="1.配置dhcp服务器"></a>1.配置dhcp服务器</h2><h2 id="2-在网关接口上配置转发"><a href="#2-在网关接口上配置转发" class="headerlink" title="2.在网关接口上配置转发"></a>2.在网关接口上配置转发</h2><p>switch(config)#int  vlan 10</p>
-<p>ip(config-if)#helper-address 192.168.30.1</p>
-<h2 id="3-pc端"><a href="#3-pc端" class="headerlink" title="3.pc端"></a>3.pc端</h2><p>pc&gt;ipconfig /release</p>
-<p>pc&gt;ipconfig /renew</p>
-<p>pc&gt;ipconfig /all</p>
+                <h1 id="高级距离矢量路由协议EIGRP"><a href="#高级距离矢量路由协议EIGRP" class="headerlink" title="高级距离矢量路由协议EIGRP"></a>高级距离矢量路由协议EIGRP</h1><h2 id="EIGRP的特点"><a href="#EIGRP的特点" class="headerlink" title="EIGRP的特点"></a>EIGRP的特点</h2><p>100%无环路的无类路由</p>
+<p>可以在两条开销不相等的路由上实现负载均衡</p>
+<p>支持多种网络协议</p>
+<p>在网络中任一点手动汇总</p>
+<h2 id="EIGRP表"><a href="#EIGRP表" class="headerlink" title="EIGRP表"></a>EIGRP表</h2><p>邻居表：存有下一跳地址</p>
+<p>拓扑表：存有所有最佳路由条目，以及其他路由路径</p>
+<p>路由表：存有所有最佳路由条目</p>
+<h2 id="AD和FD"><a href="#AD和FD" class="headerlink" title="AD和FD"></a>AD和FD</h2><p>通告距离(AD)：也称为报告距离，下一跳路由器到目的地的度量值</p>
+<p>可行距离(FD)：本地路由器到达目的地的度量值</p>
+<h2 id="后继者和可行后继"><a href="#后继者和可行后继" class="headerlink" title="后继者和可行后继"></a>后继者和可行后继</h2><h3 id="后继者"><a href="#后继者" class="headerlink" title="后继者"></a>后继者</h3><p>后继者就是相邻路由具有最低成本的路径到达目的地</p>
+<p>后继路由用于转发数据包</p>
+<p>如果他们具有相同FD，可以以存在多条路径</p>
+<h3 id="可行后继"><a href="#可行后继" class="headerlink" title="可行后继"></a>可行后继</h3><p>离目的很近的邻居，但不是最低开销。</p>
+<p>一个可行后继确保一个无环拓扑，他的AD必须小于后继的FD</p>
+<p>可行后继和后继在同一时间进行选择，但只保存在拓扑表作为备份路径</p>
+<p>拓扑表可以保存多个可行后继为一个目的地</p>
+<h2 id="EIGRP度量值计算"><a href="#EIGRP度量值计算" class="headerlink" title="EIGRP度量值计算"></a>EIGRP度量值计算</h2><p>带宽 ————使用的最小的带宽</p>
+<p>可靠性————衡量一个连接失败的可能性</p>
+<p>延迟————恒力量一个包需要穿越路由的时间</p>
+<p>负载————反映了多少流量使用链接</p>
+<p>MTU：————默认情况下使用，只有带宽和延迟</p>
+<p>metric值的计算方法：<strong>metric**</strong>值=256（10^7/bw+dly之和/10）</p>
+<p>​                                            bw：最小带宽        dly：延迟之和路由传递方向所有入接口的dly值的垒加</p>
+<h2 id="EIGRP的配置"><a href="#EIGRP的配置" class="headerlink" title="EIGRP的配置"></a>EIGRP的配置</h2><p>Router(config)#router eigrp 10            (EIGRP的名字)</p>
+<p>Router(config-router)#network 11.1.1.0 0.0.0.255    (掩码可选可不选)</p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>等价负载均衡</p>
+<p>非等价负载均衡：</p>
+<p>​                    条目数量配置：maximum-paths</p>
+<p>​                    非等价负载均衡配置：Router(config-router)#variance v</p>
+<p>​                        v的算法： (v  *  S FD) /FS FD</p>
+<h2 id="EIGRP-MD5身份验证"><a href="#EIGRP-MD5身份验证" class="headerlink" title="EIGRP  MD5身份验证"></a>EIGRP  MD5身份验证</h2><p>路由器对每个他发的包进行标识</p>
+<p>路由器验证接收到的每隔路由更新数据包的来源</p>
+<p>每个参与的邻居都必须配置相同的密钥</p>
+<p>配置步骤：</p>
+<p>1.创建密钥链</p>
+<p>Router(config)#key chain 10  (10是密钥链的名字)</p>
+<p>2.对每个密钥分配密钥ID</p>
+<p>Router(config-keychain)#key 1   (1是密钥的ID，密钥可以配置多个)</p>
+<p>3.标识密钥字符串</p>
+<p>Router(config-keychain-key)#key-string 123456</p>
+<p>4.在端口上启用MD5身份验证</p>
+<p>Router(config-if)#ip authentication mode eigrp 10 md5 (10是密钥链的名字)</p>
+<p>5.在端口使用密钥链</p>
+<p>Router(config-if)#ip authentication key-chain eigrp 10 10      (第一个10是EIGRP的名字，第二个是钥匙链的名字)</p>
+<h2 id="配置被动接口"><a href="#配置被动接口" class="headerlink" title="配置被动接口"></a>配置被动接口</h2><p>被动接口不接受不发送路由表信息</p>
+<p>Router(config-router)# passive-interface Loopback0</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/08/08/python/" data-toggle="tooltip" data-placement="top"
-                           title="Python学习笔记">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/08/08/stp算法、pvst生成树/" data-toggle="tooltip" data-placement="top"
-                           title="STP算法、pvst生成树">Next Post &rarr;</a>
+                        <a href="/2019/08/15/协议/" data-toggle="tooltip" data-placement="top"
+                           title="协议">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -228,7 +259,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用路由器做DHCP"><span class="toc-text">用路由器做DHCP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DHCP中继"><span class="toc-text">DHCP中继</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-配置dhcp服务器"><span class="toc-text">1.配置dhcp服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-在网关接口上配置转发"><span class="toc-text">2.在网关接口上配置转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-pc端"><span class="toc-text">3.pc端</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#高级距离矢量路由协议EIGRP"><span class="toc-text">高级距离矢量路由协议EIGRP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP的特点"><span class="toc-text">EIGRP的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP表"><span class="toc-text">EIGRP表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AD和FD"><span class="toc-text">AD和FD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后继者和可行后继"><span class="toc-text">后继者和可行后继</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#后继者"><span class="toc-text">后继者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可行后继"><span class="toc-text">可行后继</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP度量值计算"><span class="toc-text">EIGRP度量值计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP的配置"><span class="toc-text">EIGRP的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#负载均衡"><span class="toc-text">负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EIGRP-MD5身份验证"><span class="toc-text">EIGRP  MD5身份验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置被动接口"><span class="toc-text">配置被动接口</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
