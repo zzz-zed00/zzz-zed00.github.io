@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>OSPF路由协议</title>
+      <link href="/2019/08/20/OSPF%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2019/08/20/OSPF%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="OSPF路由协议"><a href="#OSPF路由协议" class="headerlink" title="OSPF路由协议"></a>OSPF路由协议</h1><p>封装IP头部协议: 88eigrp   89ospf</p><p>工业标准，工作在IP 网络</p><p>组播地址：224.0.0.5 224.0.0.6 </p><p>链路状态型的路由器</p><h2 id="OSPF概述"><a href="#OSPF概述" class="headerlink" title="OSPF概述"></a>OSPF概述</h2><p>交换hello数据包创建邻居关系</p><h2 id="链路状态路由协议"><a href="#链路状态路由协议" class="headerlink" title="链路状态路由协议"></a>链路状态路由协议</h2><p>无环路由</p><h2 id="OSPF分层路由"><a href="#OSPF分层路由" class="headerlink" title="OSPF分层路由"></a>OSPF分层路由</h2><p>划分区域：</p><p>1.减少路由表的路由条目</p><p>2.拓扑发生变化时，只影响本区域的数据库</p><p>3.每隔30mins泛数据库信息，划分区域后，只在本区域泛洪</p><p>4.网络设计灵活</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>高级距离矢量路由协议EIGRP</title>
       <link href="/2019/08/16/%E9%AB%98%E7%BA%A7%E8%B7%9D%E7%A6%BB%E7%9F%A2%E9%87%8F%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AEEIGRP/"/>
       <url>/2019/08/16/%E9%AB%98%E7%BA%A7%E8%B7%9D%E7%A6%BB%E7%9F%A2%E9%87%8F%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AEEIGRP/</url>
