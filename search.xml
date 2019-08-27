@@ -4,11 +4,68 @@
   
     
     <entry>
+      <title>网络安全架构</title>
+      <link href="/2019/08/27/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84/"/>
+      <url>/2019/08/27/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h1 id="网络安全架构"><a href="#网络安全架构" class="headerlink" title="网络安全架构"></a>网络安全架构</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows Services 2008 和Windows Xp的安装</title>
+      <link href="/2019/08/27/Windows-services-2008-%E5%92%8Cwindows-xp%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+      <url>/2019/08/27/Windows-services-2008-%E5%92%8Cwindows-xp%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Windows-services-2008-和windows-xp的安装"><a href="#Windows-services-2008-和windows-xp的安装" class="headerlink" title="Windows services 2008 和windows xp的安装"></a>Windows services 2008 和windows xp的安装</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Windows操作系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Qos(服务质量)</title>
+      <link href="/2019/08/27/Qos(%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F)/"/>
+      <url>/2019/08/27/Qos(%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F)/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Qos-服务质量"><a href="#Qos-服务质量" class="headerlink" title="Qos(服务质量)"></a>Qos(服务质量)</h1><p>队列形式：</p><p>使某个服务的流量优先，</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 路由交换技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NAT网络地址转换以及PPP Pap和chap</title>
       <link href="/2019/08/21/NAT%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2/"/>
       <url>/2019/08/21/NAT%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2/</url>
       
-        <content type="html"><![CDATA[<h1 id="NAT网络地址转换以及PPP-pap和chap"><a href="#NAT网络地址转换以及PPP-pap和chap" class="headerlink" title="NAT网络地址转换以及PPP pap和chap"></a>NAT网络地址转换以及PPP pap和chap</h1><h2 id="NAT网络地址转换"><a href="#NAT网络地址转换" class="headerlink" title="NAT网络地址转换"></a>NAT网络地址转换</h2><p>使用少量的共有网络代表多个私有地址的方式，有助于缓解可用的空间的枯竭</p><p>IPv4  可用地址2^32-2=40亿</p><p>NET：解决网络地址不足的问题</p><p>NET：将内网隐藏起来</p><p>IPv6: 2^128=</p><h3 id="静态NAT转化"><a href="#静态NAT转化" class="headerlink" title="静态NAT转化"></a>静态NAT转化</h3><p>设置静态转化</p><p>Router(config)#ip nat inside source static 源地址  目标转化的公网地址</p><p>将接口标记为入口网络</p><p>Router(config-if)#ip nat inside </p><p>将接口标记为外部网络</p><p>Router(config-if)#ip nat outside </p><h3 id="动态NAT转换公网"><a href="#动态NAT转换公网" class="headerlink" title="动态NAT转换公网"></a>动态NAT转换公网</h3><p>动态NAT转化公网需要一个公网地址池，由内网发出去的请求会经过NAT转换成地址池中的公网IP</p><p>设置地址池</p><p>Router(config)#ip nat pool 地址池名字  地址池的起始地址  结束地址 netmask  掩码</p><p>添加一个ACL</p><p>Router(config)#access-list 10 permit 内网地址段  反掩码</p><p>建立动态转换</p><p>Router(config)#ip nat inside source list 10 pool 地址池名字  overload(超负载)</p><p>动态地址还是要在端口标记入口网络和外部网络</p><h2 id="PPP-pap和chap"><a href="#PPP-pap和chap" class="headerlink" title="PPP pap和chap"></a>PPP pap和chap</h2><h3 id="PPP-pap认证"><a href="#PPP-pap认证" class="headerlink" title="PPP pap认证"></a>PPP pap认证</h3><p>在第一个端口上配置PPP pap验证，并设置一个用户名和密码</p><p>Router(config)#username admin password ccie</p><p> Router(config)#int s0/3/0</p><p>Router(config-if)#encapsulation ppp </p><p>Router(config-if)#ppp authentication pap</p><p> 在第二个路由器的端口上同样开启PPP验证，并用PPP pap 发送验证</p><p>Router(config)#int s0/3/0</p><p>Router(config-if)#en ppp </p><p>Router(config-if)#ppp pap sent-username admin password ccie</p><h3 id="PPP-pap-chap验证"><a href="#PPP-pap-chap验证" class="headerlink" title="PPP pap chap验证"></a>PPP pap chap验证</h3><p>在两边同时开启验证，并配置挑战应答的名字和密码</p><p>密码一样，名字为对方的名字</p><p>Router(config-if)#en ppp </p><p>Router(config-if)#PPP au chap</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="NAT网络地址转换以及PPP-pap和chap"><a href="#NAT网络地址转换以及PPP-pap和chap" class="headerlink" title="NAT网络地址转换以及PPP pap和chap"></a>NAT网络地址转换以及PPP pap和chap</h1><h2 id="NAT网络地址转换"><a href="#NAT网络地址转换" class="headerlink" title="NAT网络地址转换"></a>NAT网络地址转换</h2><p>使用少量的共有网络代表多个私有地址的方式，有助于缓解可用的空间的枯竭</p><p>IPv4  可用地址2^32-2=40亿</p><p>NET：解决网络地址不足的问题</p><p>NET：将内网隐藏起来</p><p>IPv6: 2^128=</p><p>静态转换：一对一，应用于内部网络服务器等这些对外发布的凭他</p><p>动态转换：更多对多，应用于将公网申请的多个地址做成地址池，内部网络转换到这个地址池上网</p><p>过载PAT：多对一</p><h3 id="静态NAT转化"><a href="#静态NAT转化" class="headerlink" title="静态NAT转化"></a>静态NAT转化</h3><p>设置静态转化</p><p>Router(config)#ip nat inside source static 源地址  目标转化的公网地址</p><p>将接口标记为入口网络</p><p>Router(config-if)#ip nat inside </p><p>将接口标记为外部网络</p><p>Router(config-if)#ip nat outside </p><h3 id="动态NAT转换公网"><a href="#动态NAT转换公网" class="headerlink" title="动态NAT转换公网"></a>动态NAT转换公网</h3><p>动态NAT转化公网需要一个公网地址池，由内网发出去的请求会经过NAT转换成地址池中的公网IP</p><p>设置地址池</p><p>Router(config)#ip nat pool 地址池名字  地址池的起始地址  结束地址 netmask  掩码</p><p>添加一个ACL</p><p>Router(config)#access-list 10 permit 内网地址段  反掩码</p><p>建立动态转换</p><p>Router(config)#ip nat inside source list 10 pool 地址池名字  overload(超负载)</p><p>动态地址还是要在端口标记入口网络和外部网络</p><h2 id="PPP-pap和chap"><a href="#PPP-pap和chap" class="headerlink" title="PPP pap和chap"></a>PPP pap和chap</h2><h3 id="PPP-pap认证"><a href="#PPP-pap认证" class="headerlink" title="PPP pap认证"></a>PPP pap认证</h3><p>在第一个端口上配置PPP pap验证，并设置一个用户名和密码</p><p>Router(config)#username admin password ccie</p><p> Router(config)#int s0/3/0</p><p>Router(config-if)#encapsulation ppp </p><p>Router(config-if)#ppp authentication pap</p><p> 在第二个路由器的端口上同样开启PPP验证，并用PPP pap 发送验证</p><p>Router(config)#int s0/3/0</p><p>Router(config-if)#en ppp </p><p>Router(config-if)#ppp pap sent-username admin password ccie</p><h3 id="PPP-pap-chap验证"><a href="#PPP-pap-chap验证" class="headerlink" title="PPP pap chap验证"></a>PPP pap chap验证</h3><p>在两边同时开启验证，并配置挑战应答的名字和密码</p><p>密码一样，名字为对方的名字</p><p>Router(config-if)#en ppp </p><p>Router(config-if)#PPP au chap</p>]]></content>
       
       
       
@@ -122,7 +179,7 @@
       <link href="/2019/08/15/TCPIP%E5%92%8CDoD%E6%A8%A1%E5%9E%8B/"/>
       <url>/2019/08/15/TCPIP%E5%92%8CDoD%E6%A8%A1%E5%9E%8B/</url>
       
-        <content type="html"><![CDATA[<h1 id="TCP-IP和DoD模型"><a href="#TCP-IP和DoD模型" class="headerlink" title="TCP/IP和DoD模型"></a>TCP/IP和DoD模型</h1><h2 id="DoD-模型"><a href="#DoD-模型" class="headerlink" title="DoD 模型"></a>DoD 模型</h2><p>进程/应用层：对应应用层、表示层、会话层</p><p>主机到主机层： 对应传输层</p><p>因特网层： 网络层</p><p>网络接入层：  数据链路层和物理层</p><h2 id="进程-应用层协议"><a href="#进程-应用层协议" class="headerlink" title="进程/应用层协议"></a>进程/应用层协议</h2><p>Telnet：远程连接协议，提供远程登陆服务，使用23端口</p><p>FTP：文件传输协议，FTP客户端和服务器之间的连接时可靠的，为数据传输提供可可靠性的保证  使用20、21端口，20端口用于传输数据，21都那口用于传输控制信息</p><p>TFTP：简单文本传输协议，以UDP为基础的应用层协议，使用69端口</p><p>NFS：</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="TCP-IP和DoD模型"><a href="#TCP-IP和DoD模型" class="headerlink" title="TCP/IP和DoD模型"></a>TCP/IP和DoD模型</h1><h2 id="DoD-模型"><a href="#DoD-模型" class="headerlink" title="DoD 模型"></a>DoD 模型</h2><p>应用层：进程/应用层：对应应用层、表示层、会话层</p><p>传输层：主机到主机层： 对应传输层</p><p>网际互连网：因特网层： 网络层</p><p>网络接口层：网络接入层：  数据链路层和物理层</p><h2 id="进程-应用层协议"><a href="#进程-应用层协议" class="headerlink" title="进程/应用层协议"></a>进程/应用层协议</h2><p>Telnet：远程连接协议，提供远程登陆服务，使用23端口</p><p>FTP：文件传输协议，FTP客户端和服务器之间的连接时可靠的，为数据传输提供可可靠性的保证  使用20、21端口，20端口用于传输数据，21都那口用于传输控制信息</p><p>TFTP：简单文本传输协议，以UDP为基础的应用层协议，使用69端口</p><p>NFS：</p>]]></content>
       
       
       
