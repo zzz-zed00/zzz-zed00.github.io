@@ -23,7 +23,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://zzz-zed.github.io/tags/路由交换技术/">
+    <link rel="canonical" href="http://zzz-zed.github.io/page/4/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -44,8 +44,8 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
-" data-ishome = "false" >
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+" data-ishome = "true" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -134,6 +134,126 @@
 <!-- Main Content -->
 
 
+<style>
+
+    .custom-haojen-container .post-preview:nth-of-type(1),
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        text-align: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        background-size: cover;
+        padding: 0;
+        height: 300px;
+        display: table;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    /*去掉诗歌的背景图片*/
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        background-image: none !important;
+        background-color: rgba(255, 248, 220, 0.5);
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) h2,
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
+    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+        letter-spacing: 1px;
+        color: #fff;
+        margin-top: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+        font-size: .9em;
+        font-weight: 300;
+        margin-top: 0;
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+        letter-spacing: 6px;
+        font-size: 18px;
+        font-family: unset;
+        font-weight: 400;
+        color: rgba(0, 0, 0, .75)
+    }
+
+    /*不显示摘要*/
+    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+        display: none
+    }
+
+    /*只第一个显示背景图片*/
+    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+        background-image: none !important;
+    }
+
+    /*第一个分界线去掉*/
+    .custom-haojen-container hr:nth-of-type(1) {
+        display: none;
+    }
+
+    /*主题*/
+    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    /*诗词标题*/
+    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        font-size: 35px;
+        font-family: STKaiti;
+        color: rgba(0, 0, 0, .8);
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+        color: #0e2231;
+    }
+
+    @media (max-width: 768px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 240px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 28px !important;
+            margin-top: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+            padding: 20px
+        }
+    }
+
+    /*手机屏幕*/
+    @media (max-width: 400px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 195px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 20px !important;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 16px;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) a {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
 <!-- Page Header -->
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
     <div class="row">
@@ -162,19 +282,19 @@
 
 <div class="post-preview "
      style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/27/Qos(服务质量)/">
+    <a href="/2019/08/08/用路由器做DHCP/">
         <h2 class="post-title">
-            Qos(服务质量)
+            用路由器做DHCP
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-27
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-08
         </p>
         
         <div class="post-content-preview">
             <p>
-                Qos(服务质量)队列形式：
-使某个服务的流量优先，
-
+                用路由器做DHCPR1(config)# ip dhcp pool vlan100   配置地址池名称
+R1(dhcp-config)#network  192.168.100.0 255.255.255.0   分配地址范围
+R1(dhcp-config)#default-router  19..
             </p>
         </div>
     </a>
@@ -187,184 +307,23 @@
 
 <div class="post-preview "
      style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/21/NAT网络地址转换/">
+    <a href="/2019/08/08/stp算法、pvst生成树/">
         <h2 class="post-title">
-            NAT网络地址转换以及PPP Pap和chap
+            STP算法、pvst生成树
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-21
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-08
         </p>
         
         <div class="post-content-preview">
             <p>
-                NAT网络地址转换以及PPP pap和chapNAT网络地址转换使用少量的共有网络代表多个私有地址的方式，有助于缓解可用的空间的枯竭
-IPv4  可用地址2^32-2=40亿
-NET：解决网络地址不足的问题
-NET：将内网隐藏起来
-IPv6: 2^128=
-静态转换：一对一，应用于内部网络服务器..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/21/路由重分布与路径控制/">
-        <h2 class="post-title">
-            路由重分布与路径控制
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                路由重分布与路径控制
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/16/高级距离矢量路由协议EIGRP/">
-        <h2 class="post-title">
-            高级距离矢量路由协议EIGRP
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-16
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                高级距离矢量路由协议EIGRPEIGRP的特点100%无环路的无类路由
-可以在两条开销不相等的路由上实现负载均衡
-支持多种网络协议
-在网络中任一点手动汇总
-EIGRP表邻居表：存有下一跳地址
-拓扑表：存有所有最佳路由条目，以及其他路由路径
-路由表：存有所有最佳路由条目
-AD和FD通告距离(AD)..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/15/协议/">
-        <h2 class="post-title">
-            协议
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                协议Telnet协议Telnet允许客户端通过一个协商来与远程设备进行通信
-
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/15/动态路由/">
-        <h2 class="post-title">
-            动态路由
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                动态路由RIP根据拓扑或流量改变而自动调整
-RIP解决环路的方法1.定义最大跳数（15）
-2.水平分割
-3.路由毒化或毒性逆转
-4.抑制计时器
-5.触发更新
-RIP路由协议版本RIPv1 发送路由更新时不携带子网掩码，宣告主类网络，属于有类路由协议
-发送路由更新，目标是广播地址：255.255...
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/15/TCPIP和DoD模型/">
-        <h2 class="post-title">
-            TCP/IP和DoD模型
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                TCP/IP和DoD模型DoD 模型应用层：进程/应用层：对应应用层、表示层、会话层
-传输层：主机到主机层： 对应传输层
-网际互连网：因特网层： 网络层
-网络接口层：网络接入层：  数据链路层和物理层
-进程/应用层协议Telnet：远程连接协议，提供远程登陆服务，使用23端口
-FTP：文件传输协..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')">
-    <a href="/2019/08/15/OSI参考模型/">
-        <h2 class="post-title">
-            OSI 参考模型
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                OSI 参考模型是IOS开发的
-OSI 模型包含7层OSI模型包含7层，分为两组：
-上三层应用层：用户界面  ————文件，打印，消息，数据库和应用程序服务
-​                用户和计算机交流的场所，是实际应用程序之间的接口，如FTP、TFTP等
-表示层： 表示数据，进行加密等处..
+                STP算法STP将一个环形网络生成无环拓扑的步骤
+第一步：选择根网桥
+第二部；选择根端口
+第三步：选择指端口
+1.如何选择根网桥根据网桥ID(BID)选择根网桥，谁的优先级小，谁就是网桥。如果优先级相同，谁的MAC地址小谁就是网桥。
+BID：优先级+MAC地址
+​    默认情况下交换机的优先级..
             </p>
         </div>
     </a>
@@ -380,10 +339,10 @@ OSI 模型包含7层OSI模型包含7层，分为两组：
 
 <ul class="pager">
     
-    
-    <li class="next">
-        <a href="/tags/路由交换技术/page/2/">Older Posts &rarr;</a>
+    <li class="previous">
+        <a href="/page/3/">&larr; Newer Posts</a>
     </li>
+    
     
 </ul>
 
