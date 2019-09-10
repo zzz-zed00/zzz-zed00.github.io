@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        About｜努力，就会有回报
+        Samba服务器的安装与使用｜努力，就会有回报
         
     </title>
 
-    <link rel="canonical" href="http://zzz-zed.github.io/about/">
+    <link rel="canonical" href="http://zzz-zed.github.io/2019/09/10/samba服务器/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -44,7 +44,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -133,138 +133,170 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="http://wx3.sinaimg.cn/large/006BhCi3gy1g5y0czkbmej30go0gyaaf.jpg"/>
-                        <h5><a href="/about/">zz</a></h5>
-                        <p>做一个努力向上的男人</p>
+
+<img class="wechat-title-img"
+     src="https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://wx4.sinaimg.cn/large/006BhCi3gy1g5xumbs521j30sg0sgjrd.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Samba服务器的安装与使用</h1>
+                    
+                    <span class="meta">
+                         作者 zz
+                        <span>
+                          日期 2019-09-10
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Linux系统"
+                           title="Linux系统">Linux系统</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
-    </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <blockquote>
-<p>大多数时候，你都要相信自己</p>
-</blockquote>
-<p>一直努力下去</p>
-
-
         </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Samba服务器的安装与使用
+        </span>
+    </div>
+</header>
 
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="samba服务器的安装和使用"><a href="#samba服务器的安装和使用" class="headerlink" title="samba服务器的安装和使用"></a>samba服务器的安装和使用</h1><p>samba服务器可以共享不同设备之间的文件，实现资源共享</p>
+<h2 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h2><p>这里用yum安装方式</p>
+<p>yum -y install samba samba-client</p>
+<h2 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h2><p>一般情况下防火墙会禁用samba服务，这里将其设置为允许</p>
+<p>firewall–cmd –permanent –add-service=samba</p>
+<p>设置完成要重启防火墙服务</p>
+<p>firewall–cmd –reload</p>
+<p>启动samba服务</p>
+<p>systemctl start smb.service nmb.service</p>
+<h2 id="3、建立共享目录"><a href="#3、建立共享目录" class="headerlink" title="3、建立共享目录"></a>3、建立共享目录</h2><h2 id="4、创建访问账号"><a href="#4、创建访问账号" class="headerlink" title="4、创建访问账号"></a>4、创建访问账号</h2><p>useradd -s /sbin/nologin user</p>
+<p>smbpasswd -a user 将该user用户添加到samba服务中</p>
+<p>【-a 添加smb 帐号；-x 删除smb 帐号；-d 禁用smb 帐号；-e 启用smb 帐号】</p>
+<h2 id="5、修改配置文件"><a href="#5、修改配置文件" class="headerlink" title="5、修改配置文件"></a>5、修改配置文件</h2><p>进入目录/etc/samba/smb.conf</p>
+<p>在文件末尾添加共享文件</p>
+<p>[company] //共享名称为company<br>        comment = company share //共享注释<br>        path = /home/company //指定共享路径<br>        browseable = yes //所有人可见<br>        guest ok = no //拒绝匿名访问<br>        writeable = yes //支持写入数据<br>[company]<br>        comment = company share<br>        path = /home/company<br>        guest ok = no //拒绝匿名访问<br>        valid users=user,user1,user2 //允许访问的用户列表<br>        write list=user //允许写入的用户列表</p>
+<p>修改完成，重启samba服务器(systemctl restart smb nmb)</p>
+<h2 id="6、测试配置文件正确"><a href="#6、测试配置文件正确" class="headerlink" title="6、测试配置文件正确"></a>6、测试配置文件正确</h2><p>testparm当配置文件有错时会给出相应提示</p>
+<h2 id="7、测试samba服务器"><a href="#7、测试samba服务器" class="headerlink" title="7、测试samba服务器"></a>7、测试samba服务器</h2><p>在linux 客户端访问测试:smbclient -U smbuser //192.168.137.133/company<br>查看服务器的共享文件有哪些：smbclient -L 192.168.137.133<br>查看smbuser 用户可以访问的共享文件：smbclient -L 192.168.137.133 -U smbuser</p>
+<h2 id="8、Linux下访问Windows文件夹的方式"><a href="#8、Linux下访问Windows文件夹的方式" class="headerlink" title="8、Linux下访问Windows文件夹的方式"></a>8、Linux下访问Windows文件夹的方式</h2><p>在Windows上设置共享目录：d:\file</p>
+<p>在Linux下安装samba-client客户端</p>
+<p>​    #yum -y install samba-client</p>
+<p>安装cifs-utils软件包</p>
+<p>​    #yum -y install cifs-utils</p>
+<p>linux下建立挂载点</p>
+<p>​    #mkdir /mnt/windows</p>
+<p>挂载d:\file到/mnt/windows</p>
+<p>​    #mount -t cifs -o username=name password=pass //192.168.137.133/file    /mnt/windows</p>
+<p>挂载成功即可进入/mnt/Windows目录查看windows的共享文件夹</p>
+<p>在/etc/fstab文件中添加挂载信息进行永久挂载</p>
+<p>//192.168.137.133/redhat_disk    /mnt/windows    cifs    username=name    password=123456    0    0</p>
+<p>至此配置完成</p>
+
+                <hr>
+                
+
+                <ul class="pager">
                     
-                    <img src="http://wx3.sinaimg.cn/large/006BhCi3gy1g5y0czkbmej30go0gyaaf.jpg"/>
                     
-                    <h5><a href="/about/">zz</a></h5>
+                    <li class="next">
+                        <a href="/2019/08/27/网络安全架构/" data-toggle="tooltip" data-placement="top"
+                           title="网络安全架构">Next Post &rarr;</a>
+                    </li>
                     
-                    <p>做一个努力向上的男人</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        
+                </ul>
 
-                        
-                        <li>
-                            <a target="_blank" href="http://weibo.com/6047720191">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+                
 
-                        
+                
 
-                        
-                        <li>
-                            <a target="_blank" href="https://github.com/zzz-zed00">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
 
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#samba服务器的安装和使用"><span class="toc-text">samba服务器的安装和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、安装"><span class="toc-text">1、安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、配置"><span class="toc-text">2、配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、建立共享目录"><span class="toc-text">3、建立共享目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、创建访问账号"><span class="toc-text">4、创建访问账号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、修改配置文件"><span class="toc-text">5、修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、测试配置文件正确"><span class="toc-text">6、测试配置文件正确</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、测试samba服务器"><span class="toc-text">7、测试samba服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、Linux下访问Windows文件夹的方式"><span class="toc-text">8、Linux下访问Windows文件夹的方式</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Linux系统"
+                           title="Linux系统">Linux系统</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://niesitelin.github.io">岁往弦吐箭</a></li>
+                        
+                        <li><a href="http://godunt.coding.me">點點</a></li>
                         
                     </ul>
                 </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#路由交换技术" title="路由交换技术"
-                       rel="13">路由交换技术</a>
-                    
-                    
-                    
-                    <a href="/tags/#渗透" title="渗透"
-                       rel="3">渗透</a>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </div>
-            </section>
-            
-
-            
-            <hr>
-            <h5 style="text-align: center;">Friends</h5>
-            <ul class="list-inline" style="text-align: center;">
                 
-                <li><a href="https://niesitelin.github.io" target="_blank">岁往弦吐箭</a></li>
-                
-                <li><a href="http://godunt.coding.me" target="_blank">點點</a></li>
-                
-            </ul>
-            
-
+            </div>
         </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
