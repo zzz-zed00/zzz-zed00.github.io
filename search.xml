@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Firewalld防火墙</title>
+      <link href="/2019/09/18/firewalld%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+      <url>/2019/09/18/firewalld%E9%98%B2%E7%81%AB%E5%A2%99/</url>
+      
+        <content type="html"><![CDATA[<h1 id="firewalld防火墙"><a href="#firewalld防火墙" class="headerlink" title="firewalld防火墙"></a>firewalld防火墙</h1><h2 id="防火墙的区域"><a href="#防火墙的区域" class="headerlink" title="防火墙的区域"></a>防火墙的区域</h2><p>Trusted        允许所有传入流量</p><p>Home            允许ssh、mdns、ipp-client、samba-client  或者dhcpv6client预定义服务匹配的传入流量，其余均拒绝</p><p>Internal         默认时与home区域相同</p><p>Work                允许与ssh、ipp-client或dhcpv6-client预定义服务匹配的传入流量，其余均拒绝</p><p>Public            允许ssh、ipp-client或dhcpv6-client预定义服务</p><p>External        允许与ssh预定义服务匹配的传入流量，其余均拒绝。默认将经过此区域转发的IPv4地址传出流量进行地址伪装</p><p>Dmz                允许与ssh预定义服务匹配的传入流量，其余均拒绝</p><p>Block                拒绝所有传入流量</p><p>Drop                丢弃所有传入流量</p><p>​        流量经过防火墙时，firewalld防火墙会对传入的每个数据包进行检查，如果此数据包的源地址关联到特定的区域，则会应用该区域的规则对此数据包进行处理，如果该源地址没有关联到任何区域，则将使用传入网络接口所在的区域规则进行处理。如果流量与不允许的端口、协议或者服务匹配，则防火墙拒绝传入流量</p><h2 id="字符管理工具"><a href="#字符管理工具" class="headerlink" title="字符管理工具"></a>字符管理工具</h2><p>firewall-cmd是firewalld防火墙自带的字符管理工具，可以用来设置firewalld防火墙的各种规则</p><p>设置firewalld有两种规则，一种是runtime状态，一种是permanent状态</p><p>runtime状态设置的规则立即生效，重启防火墙失效</p><p>permanent状态设置的规则重启防火墙生效，会永久生效</p><h3 id="1、区域管理"><a href="#1、区域管理" class="headerlink" title="1、区域管理"></a>1、区域管理</h3><p>firewalld-cmd –get-default-zone        查看默认区域</p><p>firewalld-cmd –get-active-zones        列出当前正在使用的区域及其对应的网卡接口</p><p>firewalld-cmd –get-zones                    列出所有可用区域</p><p>firewalld-cmd –set-default-zone=block    设置默认区域</p><h3 id="2、服务管理"><a href="#2、服务管理" class="headerlink" title="2、服务管理"></a>2、服务管理</h3><p>firewalld-cmd –get-services    查看预定义服务</p><p>firewalld-cmd -add-service=http –zone=public –permanent    添加http服务到public区域</p><p>firewalld-cmd –list-all –zone=public    查看public区域已配置的规则</p><p>firewalld-cmd –remove-service=http –permanent –zone=public    移除public区域的http服务</p><h3 id="3、端口管理"><a href="#3、端口管理" class="headerlink" title="3、端口管理"></a>3、端口管理</h3><p>firewalld-cmd –add-port=3306/tcp        允许TCP的3306端口到public区域</p><p>firewalld-cmd –remove-port=3306/tcp    从public区域中将tcp的3306端口移除</p><p>firewalld-cmd –add-port=2048-2050/udp –zone=public    允许某一范围端口到public区域</p><p>firewalld-cmd –list-ports    使用–list-ports 查看加入的端口操作是否成功</p><h3 id="4、伪装IP"><a href="#4、伪装IP" class="headerlink" title="4、伪装IP"></a>4、伪装IP</h3><p>NAT设备将经过设备的包转发到指定的接收方，同时将通过的数据包源地址更改为其NAT设备自己的接口地址。当返回的数据包到达时，会将目的地址修改为原始主机地址并作路由。</p><p>地址伪装可以实现多个地址共享一个公网地址上网</p><p>firewalld-cmd –query-masquerade    检查是否允许伪装IP</p><p>firewalld-cmd –permanent –add-masquerade    允许防火墙伪装IP</p><p>firewalld-cmd –permanent –remove-masquerade    禁止防火墙伪装IP</p><h3 id="5、端口转发"><a href="#5、端口转发" class="headerlink" title="5、端口转发"></a>5、端口转发</h3><p>我们想把某个端口隐藏起来的时候，就可以在防火墙上组值那个端口访问，然后再开一个不规则的端口，之后配置防火墙的端口转发，将流量转发过去</p><p>firewalld-cmd –permanent –add-masquerade    开启端口转发</p><p>firewalld-cmd –add-forward-port=port=9080:proto=tcp:toport=80    将9080端口的流量转发到80端口</p><p>firewalld-cmd –remove-service=http    关闭80端口</p><h3 id="6、多区域应用"><a href="#6、多区域应用" class="headerlink" title="6、多区域应用"></a>6、多区域应用</h3><p>firewalld-cmd –change-interface=ens75 -zone=drop    将ens75接口指定到drop区域</p><p>根据访问来源网段设定区域规则</p><p>firewalld-cmd –add-source=192.168.137.0/24 –zone=public</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Web服务器</title>
       <link href="/2019/09/10/web%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
       <url>/2019/09/10/web%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
